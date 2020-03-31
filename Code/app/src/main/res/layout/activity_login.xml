@@ -131,7 +131,7 @@
                 android:clickable="true"
                 android:fadingEdge="@string/app_name"
                 android:hapticFeedbackEnabled="true"
-                android:text="Don't have an account?\nRegister Here"
+                android:text="Don't have an account?\nSign Up Here"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="#22045F" />
