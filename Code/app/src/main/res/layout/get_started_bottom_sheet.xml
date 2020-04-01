@@ -1,0 +1,78 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/dp_8"
+    android:layout_marginTop="@dimen/dp_8"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/get_started_onboarding_sheet"
+    tools:context=".GetStartedListDialogFragment">
+
+    <TextView
+        android:layout_width="326dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="23dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:textSize="23sp"
+        android:gravity="center"
+        android:text="@string/log_in_or_sign_up">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="326dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/quicksand_medium"
+        android:textSize="15sp"
+        android:textColor="#ff9ea1a7"
+        android:gravity="center"
+        android:text="@string/get_started_bottom_sheet_text_1">
+    </TextView>
+    <Button
+        android:id="@+id/mobile_user"
+        android:layout_width="326dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/quicksand"
+        android:textAllCaps="false"
+        android:text="@string/phone_number_login_text"
+        android:background="@drawable/login_buttons">
+
+    </Button>
+    <Button
+        android:layout_width="326dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/quicksand"
+        android:textAllCaps="false"
+        android:drawableStart="@drawable/google"
+        android:text="@string/continue_with_google_login"
+        android:background="@drawable/login_buttons">
+
+    </Button>
+    <Button
+        android:layout_width="326dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/quicksand"
+        android:textAllCaps="false"
+        android:text="@string/continue_with_facebook_login"
+        android:background="@drawable/login_buttons">
+
+    </Button>
+
+
+</LinearLayout>
