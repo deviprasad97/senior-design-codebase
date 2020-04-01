@@ -1,29 +1,35 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class Login extends AppCompatActivity {
+import java.security.AccessController;
 
-    private TextView Register;
+public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        Register = (TextView)findViewById(R.id.register);
-
-        Register.setOnClickListener(new View.OnClickListener() {
+        Button getStartedButton = findViewById(R.id.button_get_started);
+        final GetStartedListDialogFragment getStartedListDialogFragment =
+                GetStartedListDialogFragment.newInstance();
+        Button mobileUser = findViewById(R.id.mobile_user);
+        getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Login.this,UserRegistration.class));
+            public void onClick(View v) {
+                getStartedListDialogFragment.show(getSupportFragmentManager(),
+                        "add_photo_dialog_fragment");
             }
         });
+
 
     }
 }

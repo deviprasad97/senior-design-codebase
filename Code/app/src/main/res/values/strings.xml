@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="log_in">Log in</string>
+    <string name="state_farm_fit">State Farm Fit</string>
+    <string name="onboarding_welcome_text_1">Bet on yourself, achieve your goals, win your money back and more.</string>
+    <string name="on_borading_desc_title_1">HEY RUNNER</string>
+    <string name="bottom_sheet_option_camera">Use Camera</string>
+    <string name="bottom_sheet_option_gallery">Upload from Gallery</string>
+    <string name="bottom_sheet_option_heading">Add Photo</string>
+    <string name="bottom_sheet_option_remove_photo">Remove Photo</string>
+    <string name="log_in_or_sign_up">Log in or Sign up</string>
+    <string name="get_started_bottom_sheet_text_1">Welcome to State Farm Fit. First thing first log in or sign up so that we can begin.</string>
+    <string name="phone_number_login_text">Continue with Phone number</string>
+    <string name="continue_with_google_login">Continue with Google</string>
+    <string name="continue_with_facebook_login">Continue with Facebook</string>
+    <string name="get_started">Get Started</string>
 </resources>
