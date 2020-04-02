@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -37,7 +38,14 @@ public class GetStartedListDialogFragment extends BottomSheetDialogFragment {
 
         View view = inflater.inflate(R.layout.get_started_bottom_sheet, container,
                 false);
-//        Button mobileUser = view.findViewById(R.id.mobile_user);
+        Button mobileUser = view.findViewById(R.id.mobile_user);
+        mobileUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // get the views and attach the listener
 
