@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".Welcomescreen">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -58,7 +58,7 @@
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:layout_constraintVertical_bias="0.902">
+                app:layout_constraintVertical_bias="0.792">
 
             </TextView>
 
@@ -66,18 +66,40 @@
                 android:layout_width="285dp"
                 android:layout_height="38dp"
                 android:fontFamily="@font/quicksand_medium"
+                android:gravity="center"
                 android:letterSpacing="0.25"
                 android:text="@string/on_borading_desc_title_1"
                 android:textAllCaps="true"
                 android:textColor="#ffffffff"
                 android:textSize="31sp"
-                android:gravity="center"
                 app:layout_constraintBottom_toTopOf="@+id/textView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                app:layout_constraintVertical_bias="0.772">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/loginbutton"
+                android:layout_width="207dp"
+                android:layout_height="72dp"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="center"
+                android:letterSpacing="0.25"
+                android:text="Already Have an ID?\nLOG IN"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:textAllCaps="true"
+                android:textColor="#ffffffff"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/button_get_started"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:layout_constraintVertical_bias="0.92">
+                app:layout_constraintTop_toBottomOf="@+id/textView3">
 
 
             </TextView>
@@ -88,11 +110,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="24dp"
                 android:background="@drawable/wide_green_button"
+                android:fontFamily="@font/quicksand"
                 android:text="@string/get_started"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp"
-                android:fontFamily="@font/quicksand"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.494"

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 
 public class SplashScreen extends AppCompatActivity {
     Thread myThread;
@@ -29,12 +28,12 @@ public class SplashScreen extends AppCompatActivity {
                 try {
                     sleep(1800);
                     if (sharedPreferences.getString(IS_LOGGED, "0").equals("1")) {
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), Mainscreen.class);
                         startActivity(intent);
                         finish();
                     }
                     else {
-                        Intent intent = new Intent(getApplicationContext(), Login.class);
+                        Intent intent = new Intent(getApplicationContext(), Welcomescreen.class);
                         startActivity(intent);
                         finish();
                     }
