@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".select_program"></activity>
+        <activity
+            android:name=".newhomescreen"
+            android:label="@string/title_activity_newhomescreen"></activity>
+        <activity android:name=".select_program" />
         <activity android:name=".Workedout_user_homescreen" />
         <activity android:name=".homescreen" />
         <activity android:name=".UserRegistration" />
