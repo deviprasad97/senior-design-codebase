@@ -129,7 +129,6 @@
                 android:layout_gravity="center_horizontal"
                 android:background="#F3EDEB"
                 android:clickable="true"
-                android:fadingEdge="@string/app_name"
                 android:hapticFeedbackEnabled="true"
                 android:text="Don't have an account?\nSign Up Here"
                 android:textAlignment="center"

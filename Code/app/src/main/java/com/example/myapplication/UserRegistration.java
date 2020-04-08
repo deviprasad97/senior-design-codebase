@@ -2,14 +2,18 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class UserRegistration extends AppCompatActivity {
 
     private String[] gender = {"Gender","Male","Female","Non-Binary","Don't Disclose"};
     private Spinner genderSpinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
