@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OnBoarding"></activity>
+        <activity
+            android:name=".SettingsPage"
+            android:label="@string/title_activity_settings_page"></activity>
+        <activity android:name=".ProfilePage" />
+        <activity android:name=".OnBoarding" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,10 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Welcomescreen">
-        </activity>
-         <activity android:name=".Mainscreen">
-         </activity>
+        <activity android:name=".Welcomescreen" />
+        <activity android:name=".Mainscreen" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
