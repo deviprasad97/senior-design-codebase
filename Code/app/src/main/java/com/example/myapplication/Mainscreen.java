@@ -25,6 +25,15 @@ public class Mainscreen extends AppCompatActivity {
             }
         });
 
+        final Button tempbutton2= (Button) findViewById(R.id.tempbutton2);
+        tempbutton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(Mainscreen.this, SettingsPage.class));
+            }
+        });
+
     }
 
 }
