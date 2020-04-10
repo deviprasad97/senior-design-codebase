@@ -1,34 +1,60 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="@string/messages_header">
 
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
+    <PreferenceCategory app:title="Connections">
 
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
+        <SwitchPreferenceCompat
+            android:id="@+id/Spotifyconnect"
+            app:icon="@drawable/spotifyicon"
+            app:key="sync"
+            app:title="Connect to Spotify" />
+        <SwitchPreferenceCompat
+            android:id="@+id/GoogleConnect"
+            app:icon="@drawable/google"
+            app:key="sync"
+            app:title="Connect to Google" />
+        <SwitchPreferenceCompat
+            android:id="@+id/GoogleFitConnect"
+            app:icon="@drawable/googlefitlogo"
+            app:key="sync"
+            app:title="Connect to Google Fit" />
+        <SwitchPreferenceCompat
+            android:id="@+id/AppleConnect"
+            app:icon="@drawable/applelogo"
+            app:key="sync"
+            app:title="Connect to Apple" />
+
+
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
+    <PreferenceCategory app:title="System">
 
-        <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+        <Preference
+            android:id="@+id/tracking"
+            app:title="Tracking"></Preference>
+        <Preference
+            android:id="@+id/notification"
+            app:title="Notification"></Preference>
 
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="Account">
+
+        <Preference
+            android:id="@+id/viewprofile"
+            app:title="Profile">
+
+
+        </Preference>
+
+        <Preference
+            android:id="@+id/manageaccount"
+            app:title="Manage Account"></Preference>
+
+        <Preference
+            android:id="@+id/signout"
+            app:title="Sign Out"></Preference>
 
     </PreferenceCategory>
 
