@@ -15,6 +15,7 @@ public class homescreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
+
         home=(ImageView) findViewById(R.id.select);
         you=(ImageView) findViewById(R.id.you);
         program=(ImageView) findViewById(R.id.program);
@@ -22,13 +23,13 @@ public class homescreen extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(homescreen.this, Workedout_user_homescreen.class));
+                startActivity(new Intent(homescreen.this, health_status.class));
             }
         });
         you.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(homescreen.this, Workedout_user_homescreen.class));
+                startActivity(new Intent(homescreen.this, health_status.class));
             }
         });
         program.setOnClickListener(new View.OnClickListener() {
@@ -37,5 +38,8 @@ public class homescreen extends AppCompatActivity {
                 startActivity(new Intent(homescreen.this, select_program.class));
             }
         });
+
     }
+
+
 }
