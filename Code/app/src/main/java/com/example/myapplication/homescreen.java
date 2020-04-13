@@ -9,17 +9,17 @@ import android.widget.ImageView;
 
 public class homescreen extends AppCompatActivity {
 
-    private ImageView home,you,program,setting;
+    private ImageView home,you,program,settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
 
-        home=(ImageView) findViewById(R.id.select);
+        home=(ImageView)  findViewById(R.id.selected);
         you=(ImageView) findViewById(R.id.you);
         program=(ImageView) findViewById(R.id.program);
-        setting=(ImageView) findViewById(R.id.setting);
+        settings=(ImageView) findViewById(R.id.settings);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +39,7 @@ public class homescreen extends AppCompatActivity {
             }
         });
 
-        setting.setOnClickListener(new View.OnClickListener() {
+        settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(homescreen.this, SettingsPage.class));
