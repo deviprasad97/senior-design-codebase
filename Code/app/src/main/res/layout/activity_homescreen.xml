@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ContentDescription"
+    tools:context=".homescreen">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/workouts" />
+
+    <ImageView
+        android:id="@+id/select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="176dp"
+        android:layout_marginEnd="174dp"
+        android:layout_marginBottom="27dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/program"
+        android:layout_width="89dp"
+        android:layout_height="59dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/program_logo" />
+
+    <ImageView
+        android:id="@+id/you"
+        android:layout_width="70dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="11dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/you_logo" />
+    <ImageView
+        android:id="@+id/setting"
+        android:layout_width="98dp"
+        android:layout_height="78dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="309dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="647dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/settingicon" />
+
+</RelativeLayout>
+
+
+
+
+

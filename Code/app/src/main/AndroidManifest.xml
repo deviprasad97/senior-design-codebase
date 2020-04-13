@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".health_status"></activity>
+        <activity android:name=".select_program" />
+        <activity android:name=".homescreen" />
+        <activity android:name=".Login" />
         <activity
             android:name=".SettingsPage"
-            android:label="@string/title_activity_settings_page"></activity>
+            android:label="@string/title_activity_settings_page" />
         <activity android:name=".ProfilePage" />
         <activity android:name=".OnBoarding" />
         <activity android:name=".SplashScreen">
@@ -19,7 +23,9 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="your.action.string"/>
+
+                <action android:name="your.action.string" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
