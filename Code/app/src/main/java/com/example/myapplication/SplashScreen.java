@@ -2,49 +2,46 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SplashScreen extends AppCompatActivity {
-    Thread myThread;
-    SharedPreferences sharedPreferences;
-    String MY_PREFERENCES = "MY_PREFERENCES";
-    String EMAIL_ID = "email_id";
-    String USER_NAME = "user_name";
-    String PASSWORD = "password";
-    String IS_LOGGED = "IS_LOGGED";
+
+    private  static  int SPLASH_SCREEN =3500;
+
+    ImageView imageView;
+
+    Animation top;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
-        sharedPreferences = SplashScreen.this.getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
 
-        myThread = new Thread() {
+        imageView = findViewById(R.id.imageView);
+
+
+
+        top = AnimationUtils.loadAnimation(this, R.anim.top);
+        imageView.setAnimation(top);
+
+        new Handler().postDelayed(new Runnable()
+        {
             @Override
             public void run() {
-                try {
-                    sleep(1800);
-                    if (sharedPreferences.getString(IS_LOGGED, "0").equals("1")) {
-                        Intent intent = new Intent(getApplicationContext(), Mainscreen.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                    else {
-                        Intent intent = new Intent(getApplicationContext(), Welcomescreen.class);
-                        startActivity(intent);
-                        finish();
-                    }
-
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                Intent intent = new Intent(SplashScreen.this, Welcomescreen.class);
+                startActivity(intent);
+                finish();
             }
-        };
-        myThread.start();
+        },SPLASH_SCREEN);
 
     }
 }
+
