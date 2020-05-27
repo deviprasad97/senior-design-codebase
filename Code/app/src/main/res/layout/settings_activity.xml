@@ -11,7 +11,7 @@
         android:fontFamily="@font/quicksand_bold"
         android:paddingLeft="20dp"
         android:paddingTop="20dp"
-        android:text="Settings"
+        android:text="You"
         android:textSize="30sp"
         android:textStyle="bold" />
 
