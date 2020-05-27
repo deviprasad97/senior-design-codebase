@@ -43,8 +43,13 @@
 
         <Preference
             android:id="@+id/viewprofile"
-            app:title="Profile">
-
+            app:title="Profile"
+            android:summary="Click to view your profile information">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.example.myapplication"
+                android:targetClass="com.example.myapplication.ProfilePage"
+                />
 
         </Preference>
 
@@ -54,7 +59,13 @@
 
         <Preference
             android:id="@+id/signout"
-            app:title="Sign Out"></Preference>
+            app:title="Sign Out">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.example.myapplication"
+                android:targetClass="com.example.myapplication.Login"
+                />
+        </Preference>
 
     </PreferenceCategory>
 

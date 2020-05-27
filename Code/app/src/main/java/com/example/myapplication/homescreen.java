@@ -19,7 +19,7 @@ public class homescreen extends AppCompatActivity {
         home=(ImageView)  findViewById(R.id.selected);
         you=(ImageView) findViewById(R.id.you);
         program=(ImageView) findViewById(R.id.program);
-        settings=(ImageView) findViewById(R.id.settings);
+        //settings=(ImageView) findViewById(R.id.settings);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,7 +29,7 @@ public class homescreen extends AppCompatActivity {
         you.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(homescreen.this, ProfilePage.class));
+                startActivity(new Intent(homescreen.this, SettingsPage.class));
             }
         });
         program.setOnClickListener(new View.OnClickListener() {
@@ -38,14 +38,14 @@ public class homescreen extends AppCompatActivity {
                 startActivity(new Intent(homescreen.this, select_program.class));
             }
         });
-
+        /*
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(homescreen.this, SettingsPage.class));
             }
         });
-
+        */
 
     }
 

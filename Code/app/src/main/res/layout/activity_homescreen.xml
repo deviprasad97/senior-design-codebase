@@ -48,7 +48,7 @@
         android:layout_marginBottom="11dp"
         android:clickable="true"
         app:srcCompat="@drawable/you_logo" />
-
+    <!--
     <ImageView
         android:id="@+id/settings"
         android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
         android:layout_marginStart="304dp"
         android:clickable="true"
         app:srcCompat="@drawable/settingicon" />
-
+        -->
 </RelativeLayout>
 
 
