@@ -1,10 +1,17 @@
 package com.example.myapplication;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,9 +20,11 @@ import com.sdsmdg.harjot.vectormaster.VectorMasterView;
 import com.sdsmdg.harjot.vectormaster.models.PathModel;
 import com.softmoore.android.graphlib.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Line;
@@ -26,6 +35,10 @@ import lecho.lib.hellocharts.view.LineChartView;
 
 
 public class ProfilePage extends AppCompatActivity {
+
+    private CircleImageView profileImage;
+    private static final int PICK_IMAGE = 1;
+    Uri imageUri;
 
     private TextView fullname;
     private TextView email;
@@ -41,6 +54,20 @@ public class ProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
 
+        //choose profile image from media
+        profileImage = (CircleImageView) findViewById(R.id.profile_image);
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
+            @Override
+            public void onClick(View v){
+                Intent gallery = new Intent();
+                gallery.setType("image/*");
+                gallery.setAction(Intent.ACTION_GET_CONTENT);
+
+                startActivityForResult(Intent.createChooser(gallery, "Select Picture"), PICK_IMAGE);
+
+            }
+            });
         //displays user name
         fullname=findViewById(R.id.fullname);
         User user=SharedPrefManager.getInstance(this).getUser();
@@ -127,4 +154,19 @@ public class ProfilePage extends AppCompatActivity {
          */
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK){
+            imageUri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                profileImage.setImageBitmap(bitmap);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
 }
+
