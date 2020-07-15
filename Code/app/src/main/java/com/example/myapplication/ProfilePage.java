@@ -78,7 +78,7 @@ public class ProfilePage extends AppCompatActivity {
         viewport.top = 110;
         lineChartView.setMaximumViewport(viewport);
         lineChartView.setCurrentViewport(viewport);
-
+        /*
         int i = 1;
         //badges
         if (i == 1) {
@@ -94,6 +94,8 @@ public class ProfilePage extends AppCompatActivity {
             //outline.setFillColor(Color.parseColor("#ED4337"));
 
         }
+
+         */
 
     }
 }

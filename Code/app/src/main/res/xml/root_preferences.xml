@@ -54,8 +54,15 @@
         </Preference>
 
         <Preference
-            android:id="@+id/manageaccount"
-            app:title="Manage Account"></Preference>
+            android:id="@+id/fitbitconnect"
+            app:title="Connect to Fitbit"
+            android:summary="Click to connect your Fitbit watch">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetPackage="com.example.myapplication"
+                android:targetClass="com.example.myapplication.FitBitActivity"
+                />
+        </Preference>
 
         <Preference
             android:id="@+id/signout"
@@ -63,7 +70,7 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:targetPackage="com.example.myapplication"
-                android:targetClass="com.example.myapplication.Login"
+                android:targetClass="com.example.myapplication.SignOut"
                 />
         </Preference>
 
