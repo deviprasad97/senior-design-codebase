@@ -28,15 +28,44 @@ import lecho.lib.hellocharts.view.LineChartView;
 public class ProfilePage extends AppCompatActivity {
 
     private TextView fullname;
+    private TextView email;
+    private TextView phone;
+    private TextView street;
+    private TextView city;
+    private TextView zip;
+
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
+
+        //displays user name
         fullname=findViewById(R.id.fullname);
         User user=SharedPrefManager.getInstance(this).getUser();
         fullname.setText(user.getFname()+" "+user.getLname());
+
+        //displays email
+        email = findViewById(R.id.email);
+        String etext = getString(R.string.email);
+        email.setText(etext + " " + user.getEmail());
+        //...phone
+        phone = findViewById(R.id.phone);
+        String ptext = getString(R.string.phone);
+        phone.setText(ptext + " " + user.getPhone());
+        //...street
+        street = findViewById(R.id.street);
+        String stext = getString(R.string.street);
+        street.setText(stext + " " + user.getAddress());
+        //...city
+        city = findViewById(R.id.city);
+        String ctext = getString(R.string.city);
+        city.setText(ctext + " " + user.getCity());
+        //...zip
+        zip = findViewById(R.id.zip);
+        String ztext = getString(R.string.zip);
+        zip.setText(ztext + " " + user.getZipcode());
 
 
         //weight log graph
