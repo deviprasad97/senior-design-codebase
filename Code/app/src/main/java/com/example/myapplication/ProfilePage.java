@@ -13,12 +13,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.sdsmdg.harjot.vectormaster.VectorMasterView;
-import com.sdsmdg.harjot.vectormaster.models.PathModel;
-import com.softmoore.android.graphlib.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,11 +35,12 @@ public class ProfilePage extends AppCompatActivity {
     Uri imageUri;
 
     private TextView fullname;
+    private TextView weight;
+    private TextView address1;
+    private TextView address2;
+    private TextView phonenum;
+    private TextView gender;
     private TextView email;
-    private TextView phone;
-    private TextView street;
-    private TextView city;
-    private TextView zip;
 
 
     @SuppressLint("SetTextI18n")
@@ -73,27 +68,23 @@ public class ProfilePage extends AppCompatActivity {
         User user=SharedPrefManager.getInstance(this).getUser();
         fullname.setText(user.getFname()+" "+user.getLname());
 
-        //displays email
-        email = findViewById(R.id.email);
-        String etext = getString(R.string.email);
-        email.setText(etext + " " + user.getEmail());
-        //...phone
-        phone = findViewById(R.id.phone);
-        String ptext = getString(R.string.phone);
-        phone.setText(ptext + " " + user.getPhone());
-        //...street
-        street = findViewById(R.id.street);
-        String stext = getString(R.string.street);
-        street.setText(stext + " " + user.getAddress());
-        //...city
-        city = findViewById(R.id.city);
-        String ctext = getString(R.string.city);
-        city.setText(ctext + " " + user.getCity());
         //...zip
-        zip = findViewById(R.id.zip);
-        String ztext = getString(R.string.zip);
-        zip.setText(ztext + " " + user.getZipcode());
+        gender = findViewById(R.id.genderAge);
+        gender.setText(user.getGender());
 
+        //displays address
+        address1 = findViewById(R.id.address1);
+        address1.setText(user.getAddress());
+        //...city,state,zip
+        address2 = findViewById(R.id.address2);
+        address2.setText(user.getCity()+", "+user.getState()+", "+user.getZipcode());
+        //...phone number
+        phonenum = findViewById(R.id.phonenum);
+        phonenum.setText(user.getPhone());
+
+        //...email
+        email = findViewById(R.id.email);
+        email.setText(user.getEmail());
 
         //weight log graph
         LineChartView lineChartView = findViewById(R.id.showGraph);
