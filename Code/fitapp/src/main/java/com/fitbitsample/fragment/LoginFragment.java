@@ -78,10 +78,10 @@ public class LoginFragment extends BaseFragment {
                 if (!haveToken) {
                     String url = "https://www.fitbit.com/oauth2/authorize?" +
                             "response_type=code" +
-                            "&client_id=22BVVN" +
+                            "&client_id=22BTWM" +
                             "&expires_in=604800" +
                             "&scope=activity%20nutrition%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight" +
-                            "&redirect_uri=statefarmfits://logincallback" +
+                            "&redirect_uri=statefarmfit://logincallback" +
                             "&prompt=login";
                     customTabsIntent.launchUrl(getActivity(), Uri.parse(url));
                 } else {
