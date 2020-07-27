@@ -1,2 +1,2 @@
-include ':app'
+include ':fitapp',':app'
 rootProject.name='My Application'

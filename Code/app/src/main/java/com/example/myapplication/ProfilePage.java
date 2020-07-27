@@ -1,8 +1,5 @@
 package com.example.myapplication;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,7 +9,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class ProfilePage extends AppCompatActivity {
     private TextView phonenum;
     private TextView gender;
     private TextView email;
+    private Button weightlog;
 
 
     @SuppressLint("SetTextI18n")
@@ -50,7 +52,21 @@ public class ProfilePage extends AppCompatActivity {
         setContentView(R.layout.activity_profile_page);
 
         //choose profile image from media
+        weightlog=(Button)findViewById(R.id.button_weightlog);
         profileImage = (CircleImageView) findViewById(R.id.profile_image);
+        weightlog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = null;
+                try {
+                    intent = new Intent(ProfilePage.this,
+                            Class.forName("com.fitbitsample.activity.MainActivity"));
+                    startActivity(intent);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         profileImage.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
             @Override
@@ -143,6 +159,7 @@ public class ProfilePage extends AppCompatActivity {
         }
 
          */
+
 
     }
     @Override

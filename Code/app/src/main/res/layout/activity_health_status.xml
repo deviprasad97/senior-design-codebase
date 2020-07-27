@@ -40,7 +40,7 @@
             android:id="@+id/blood_pressure"
             android:layout_width="108dp"
             android:layout_height="25dp"
-            android:text="  Blood Pressure"
+            android:text="         Steps"
             android:textColor="@android:color/holo_red_light"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/imageView29"

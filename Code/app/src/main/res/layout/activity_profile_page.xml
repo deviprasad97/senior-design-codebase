@@ -209,7 +209,7 @@
 
 
             <Button
-                android:id="@+id/button_sign_in"
+                android:id="@+id/button_weightlog"
                 android:layout_width="129dp"
                 android:layout_height="39dp"
                 android:layout_marginStart="140dp"
