@@ -1,24 +1,22 @@
 package com.fitbitsample.fragment;
 
-import androidx.lifecycle.Observer;
-import androidx.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.afollestad.materialdialogs.MaterialDialog;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+
 import com.afollestad.materialdialogs.simplelist.MaterialSimpleListAdapter;
 import com.afollestad.materialdialogs.simplelist.MaterialSimpleListItem;
 import com.fitbitsample.R;
 import com.fitbitsample.activity.MainActivity;
-import com.fitbitsample.constant.PrefConstants;
 import com.fitbitsample.databinding.FragmentDashboardBinding;
 import com.fitbitsample.db.paper.PaperConstants;
 import com.fitbitsample.db.paper.PaperDB;
-import com.fitbitsample.preference.AppPreference;
 import com.fitbitsample.util.DateUtil;
 import com.fitbitsample.util.Trace;
 import com.fitbitsample.viewmodel.GetActivityModel;
@@ -85,17 +83,6 @@ public class DashBoardFragment extends BaseFragment {
                         .build());
             }
 
-            new MaterialDialog.Builder(context)
-                    .title("Choose your Device")
-                    .adapter(adapter, new MaterialDialog.ListCallback() {
-                        @Override
-                        public void onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
-                            AppPreference.getInstance().putBoolean(PrefConstants.HAVE_DEVICE_ID, true);
-                            AppPreference.getInstance().putString(PrefConstants.MY_DEVICE_ID, myDevices.get(which).getId());
-                            dialog.dismiss();
-                        }
-                    })
-                    .show();
         }
     }
 
