@@ -82,15 +82,15 @@ public class ProfilePage extends AppCompatActivity {
             }
             });
         //displays user name
-        fullname=findViewById(R.id.fullname);
+
         User user=SharedPrefManager.getInstance(this).getUser();
-        FitbitUser fitbitUser = FitbitPref.getInstance(this).getfitbitUser();
+        //FitbitUser fitbitUser = FitbitPref.getInstance(this).getfitbitUser();
+        fullname=findViewById(R.id.fullname);
         fullname.setText(user.getFname()+" "+user.getLname());
 
         //...zip
         gender = findViewById(R.id.genderAge);
-        //gender.setText(user.getGender());
-        gender.setText(fitbitUser.getDateOfBirth());
+        gender.setText(user.getGender() );
 
         //displays address
         address1 = findViewById(R.id.address1);

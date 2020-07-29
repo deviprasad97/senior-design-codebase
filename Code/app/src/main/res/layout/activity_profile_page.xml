@@ -66,16 +66,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/workout_category"
-            android:layout_width="match_parent"
-            android:layout_height="28dp"
-            android:paddingLeft="5sp"
-            android:text="180lb &amp; Athlete"
-            android:textAlignment="textStart"
-            android:textColor="#553C3C"
-            android:textSize="16sp" />
-
-        <TextView
             android:id="@+id/genderAge"
             android:layout_width="match_parent"
             android:layout_height="30dp"
