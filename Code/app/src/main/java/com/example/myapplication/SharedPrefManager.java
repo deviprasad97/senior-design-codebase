@@ -9,7 +9,7 @@ public class SharedPrefManager {
     private static SharedPrefManager mInstance;
     private Context mCtx;
 
-    private SharedPrefManager(Context mCtx) {
+    SharedPrefManager(Context mCtx) {
         this.mCtx = mCtx;
     }
     //save single instance
@@ -69,6 +69,8 @@ public class SharedPrefManager {
                 sharedPreferences.getBoolean("is_email_verified", true),
                 sharedPreferences.getBoolean("profile_pic", true),
                 sharedPreferences.getInt("user_id", -1)
+
+
 
 
 

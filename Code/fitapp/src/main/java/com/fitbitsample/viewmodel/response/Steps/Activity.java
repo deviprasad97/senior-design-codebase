@@ -41,6 +41,9 @@ public class Activity {
     @Expose
     private Integer steps;
 
+    public Activity(int steps) {
+    }
+
     public Integer getActivityId() {
         return activityId;
     }

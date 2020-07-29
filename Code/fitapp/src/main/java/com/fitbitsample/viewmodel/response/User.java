@@ -1,19 +1,19 @@
 package com.fitbitsample.viewmodel.response;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import javax.xml.transform.dom.DOMLocator;
 
 public class User {
 
     @SerializedName("age")
     @Expose
     private Integer age;
+   /*
     @SerializedName("ambassador")
     @Expose
     private Boolean ambassador;
+
+
     @SerializedName("avatar")
     @Expose
     private String avatar;
@@ -23,27 +23,40 @@ public class User {
     @SerializedName("avatar640")
     @Expose
     private String avatar640;
+
+    */
     @SerializedName("averageDailySteps")
     @Expose
     private Integer averageDailySteps;
+    /*
     @SerializedName("clockTimeDisplayFormat")
     @Expose
     private String clockTimeDisplayFormat;
+
+
     @SerializedName("corporate")
     @Expose
     private Boolean corporate;
+
+
     @SerializedName("corporateAdmin")
     @Expose
     private Boolean corporateAdmin;
+
+     */
     @SerializedName("dateOfBirth")
     @Expose
     private String dateOfBirth;
+    /*
     @SerializedName("displayName")
     @Expose
     private String displayName;
+
+     */
     @SerializedName("displayNameSetting")
     @Expose
     private String displayNameSetting;
+    /*
     @SerializedName("distanceUnit")
     @Expose
     private String distanceUnit;
@@ -62,18 +75,24 @@ public class User {
     @SerializedName("foodsLocale")
     @Expose
     private String foodsLocale;
+
+     */
     @SerializedName("fullName")
     @Expose
     private String fullName;
     @SerializedName("gender")
     @Expose
     private String gender;
+    /*
     @SerializedName("glucoseUnit")
     @Expose
     private String glucoseUnit;
+
+     */
     @SerializedName("height")
     @Expose
     private Double height;
+    /*
     @SerializedName("heightUnit")
     @Expose
     private String heightUnit;
@@ -98,36 +117,50 @@ public class User {
     @SerializedName("offsetFromUTCMillis")
     @Expose
     private Integer offsetFromUTCMillis;
+
+     */
     @SerializedName("startDayOfWeek")
     @Expose
     private String startDayOfWeek;
     @SerializedName("strideLengthRunning")
     @Expose
     private Double strideLengthRunning;
+    /*
     @SerializedName("strideLengthRunningType")
     @Expose
     private String strideLengthRunningType;
+
+     */
     @SerializedName("strideLengthWalking")
     @Expose
     private Double strideLengthWalking;
+    /*
     @SerializedName("strideLengthWalkingType")
     @Expose
     private String strideLengthWalkingType;
+
     @SerializedName("swimUnit")
     @Expose
     private String swimUnit;
     @SerializedName("timezone")
+
+
     @Expose
     private String timezone;
+
+
     @SerializedName("topBadges")
     @Expose
     private List<Object> topBadges = null;
+
     @SerializedName("waterUnit")
     @Expose
     private String waterUnit;
     @SerializedName("waterUnitName")
     @Expose
     private String waterUnitName;
+
+     */
     @SerializedName("weight")
     @Expose
     private Double weight;
@@ -142,11 +175,13 @@ public class User {
     public void setAge(Integer age) {
         this.age = age;
     }
-
+/*
     public Boolean getAmbassador() {
         return ambassador;
     }
 
+ */
+/*
     public void setAmbassador(Boolean ambassador) {
         this.ambassador = ambassador;
     }
@@ -175,6 +210,8 @@ public class User {
         this.avatar640 = avatar640;
     }
 
+
+ */
     public Integer getAverageDailySteps() {
         return averageDailySteps;
     }
@@ -182,7 +219,7 @@ public class User {
     public void setAverageDailySteps(Integer averageDailySteps) {
         this.averageDailySteps = averageDailySteps;
     }
-
+/*
     public String getClockTimeDisplayFormat() {
         return clockTimeDisplayFormat;
     }
@@ -206,7 +243,7 @@ public class User {
     public void setCorporateAdmin(Boolean corporateAdmin) {
         this.corporateAdmin = corporateAdmin;
     }
-
+*/
     public String getDateOfBirth() {
         return dateOfBirth;
     }
@@ -214,7 +251,7 @@ public class User {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-
+/*
     public String getDisplayName() {
         return displayName;
     }
@@ -222,7 +259,7 @@ public class User {
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
     }
-
+*/
     public String getDisplayNameSetting() {
         return displayNameSetting;
     }
@@ -230,7 +267,7 @@ public class User {
     public void setDisplayNameSetting(String displayNameSetting) {
         this.displayNameSetting = displayNameSetting;
     }
-
+/*
     public String getDistanceUnit() {
         return distanceUnit;
     }
@@ -278,7 +315,7 @@ public class User {
     public void setFoodsLocale(String foodsLocale) {
         this.foodsLocale = foodsLocale;
     }
-
+*/
     public String getFullName() {
         return fullName;
     }
@@ -294,7 +331,7 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
-
+/*
     public String getGlucoseUnit() {
         return glucoseUnit;
     }
@@ -302,7 +339,7 @@ public class User {
     public void setGlucoseUnit(String glucoseUnit) {
         this.glucoseUnit = glucoseUnit;
     }
-
+*/
     public Double getHeight() {
         return height;
     }
@@ -310,7 +347,7 @@ public class User {
     public void setHeight(Double height) {
         this.height = height;
     }
-
+/*
     public String getHeightUnit() {
         return heightUnit;
     }
@@ -374,7 +411,7 @@ public class User {
     public void setOffsetFromUTCMillis(Integer offsetFromUTCMillis) {
         this.offsetFromUTCMillis = offsetFromUTCMillis;
     }
-
+*/
     public String getStartDayOfWeek() {
         return startDayOfWeek;
     }
@@ -390,7 +427,7 @@ public class User {
     public void setStrideLengthRunning(Double strideLengthRunning) {
         this.strideLengthRunning = strideLengthRunning;
     }
-
+/*
     public String getStrideLengthRunningType() {
         return strideLengthRunningType;
     }
@@ -399,6 +436,8 @@ public class User {
         this.strideLengthRunningType = strideLengthRunningType;
     }
 
+
+ */
     public Double getStrideLengthWalking() {
         return strideLengthWalking;
     }
@@ -406,7 +445,7 @@ public class User {
     public void setStrideLengthWalking(Double strideLengthWalking) {
         this.strideLengthWalking = strideLengthWalking;
     }
-
+/*
     public String getStrideLengthWalkingType() {
         return strideLengthWalkingType;
     }
@@ -415,6 +454,8 @@ public class User {
         this.strideLengthWalkingType = strideLengthWalkingType;
     }
 
+ */
+/*
     public String getSwimUnit() {
         return swimUnit;
     }
@@ -430,7 +471,8 @@ public class User {
     public void setTimezone(String timezone) {
         this.timezone = timezone;
     }
-
+*/
+/*
     public List<Object> getTopBadges() {
         return topBadges;
     }
@@ -439,6 +481,8 @@ public class User {
         this.topBadges = topBadges;
     }
 
+ */
+/*
     public String getWaterUnit() {
         return waterUnit;
     }
@@ -454,7 +498,7 @@ public class User {
     public void setWaterUnitName(String waterUnitName) {
         this.waterUnitName = waterUnitName;
     }
-
+*/
     public Double getWeight() {
         return weight;
     }
@@ -462,7 +506,7 @@ public class User {
     public void setWeight(Double weight) {
         this.weight = weight;
     }
-
+/*
     public String getWeightUnit() {
         return weightUnit;
     }
@@ -471,45 +515,47 @@ public class User {
         this.weightUnit = weightUnit;
     }
 
+ */
+
     @Override
     public String toString() {
         return "{" +
                 "age=" + age +
-                ", \n ambassador=" + ambassador +
-                ", \n avatar='" + avatar + '\'' +
-                ", \n avatar150='" + avatar150 + '\'' +
-                ", \n avatar640='" + avatar640 + '\'' +
+               // ", \n ambassador=" + ambassador +
+              //  ", \n avatar='" + avatar + '\'' +
+              //  ", \n avatar150='" + avatar150 + '\'' +
+               // ", \n avatar640='" + avatar640 + '\'' +
                 ", \n averageDailySteps=" + averageDailySteps +
-                ", \nclockTimeDisplayFormat='" + clockTimeDisplayFormat + '\'' +
-                ", \ncorporate=" + corporate +
-                ", \ncorporateAdmin=" + corporateAdmin +
+               // ", \nclockTimeDisplayFormat='" + clockTimeDisplayFormat + '\'' +
+                //", \ncorporate=" + corporate +
+                //", \ncorporateAdmin=" + corporateAdmin +
                 ", \ndateOfBirth='" + dateOfBirth + '\'' +
-                ", \ndisplayName='" + displayName + '\'' +
-                ", \ndistanceUnit='" + distanceUnit + '\'' +
-                ", \nfeatures=" + features +
-                ", \nfirstName='" + firstName + '\'' +
-                ", \nfoodsLocale='" + foodsLocale + '\'' +
+                //", \ndisplayName='" + displayName + '\'' +
+                //", \ndistanceUnit='" + distanceUnit + '\'' +
+                //", \nfeatures=" + features +
+                //", \nfirstName='" + firstName + '\'' +
+                //", \nfoodsLocale='" + foodsLocale + '\'' +
                 ", \nfullName='" + fullName + '\'' +
                 ", \ngender='" + gender + '\'' +
-                ", \nglucoseUnit='" + glucoseUnit + '\'' +
+                //", \nglucoseUnit='" + glucoseUnit + '\'' +
                 ", \nheight=" + height +
-                ", \nheightUnit='" + heightUnit + '\'' +
-                ", \nisChild=" + isChild +
-                ", \nlastName='" + lastName + '\'' +
-                ", \nlocale='" + locale + '\'' +
-                ", \nmemberSince='" + memberSince + '\'' +
+                //", \nheightUnit='" + heightUnit + '\'' +
+                //", \nisChild=" + isChild +
+                //", \nlastName='" + lastName + '\'' +
+                //", \nlocale='" + locale + '\'' +
+                //", \nmemberSince='" + memberSince + '\'' +
                 ", \nstartDayOfWeek='" + startDayOfWeek + '\'' +
                 ", \nstrideLengthRunning=" + strideLengthRunning +
-                ", \nstrideLengthRunningType='" + strideLengthRunningType + '\'' +
+               // ", \nstrideLengthRunningType='" + strideLengthRunningType + '\'' +
                 ", \nstrideLengthWalking=" + strideLengthWalking +
-                ", \nstrideLengthWalkingType='" + strideLengthWalkingType + '\'' +
-                ", \nswimUnit='" + swimUnit + '\'' +
-                ", \ntimezone='" + timezone + '\'' +
-                ", \ntopBadges=" + topBadges +
-                ", \nwaterUnit='" + waterUnit + '\'' +
-                ", \nwaterUnitName='" + waterUnitName + '\'' +
+               // ", \nstrideLengthWalkingType='" + strideLengthWalkingType + '\'' +
+                //", \nswimUnit='" + swimUnit + '\'' +
+                //", \ntimezone='" + timezone + '\'' +
+             //   ", \ntopBadges=" + topBadges +
+                //", \nwaterUnit='" + waterUnit + '\'' +
+                //", \nwaterUnitName='" + waterUnitName + '\'' +
                 ", \nweight=" + weight +
-                ", \nweightUnit='" + weightUnit + '\'' +
+              //  ", \nweightUnit='" + weightUnit + '\'' +
                 '}';
     }
 }
