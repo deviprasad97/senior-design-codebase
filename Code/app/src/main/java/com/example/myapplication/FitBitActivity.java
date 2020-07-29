@@ -19,6 +19,7 @@ public class FitBitActivity extends AppCompatActivity {
             intent = new Intent(this,
                     Class.forName("com.fitbitsample.activity.MainActivity"));
             startActivity(intent);
+            finish();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

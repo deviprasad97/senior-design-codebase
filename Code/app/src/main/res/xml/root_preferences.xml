@@ -55,8 +55,8 @@
 
         <Preference
             android:id="@+id/fitbitconnect"
-            app:title="Connect to Fitbit"
-            android:summary="Click to connect your Fitbit watch">
+            app:title="Sync with Fitbit"
+            android:summary="Click to sync your Fitbit watch">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:targetPackage="com.example.myapplication"

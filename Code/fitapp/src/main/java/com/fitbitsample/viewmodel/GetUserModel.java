@@ -1,11 +1,15 @@
 package com.fitbitsample.viewmodel;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.fitbitsample.activity.MainActivity;
 import com.fitbitsample.constant.PrefConstants;
 import com.fitbitsample.db.paper.PaperConstants;
 import com.fitbitsample.db.paper.PaperDB;
+import com.fitbitsample.fitbitdata.FitbitPref;
+import com.fitbitsample.fitbitdata.FitbitUser;
 import com.fitbitsample.network.NetworkError;
 import com.fitbitsample.network.NetworkListener;
 import com.fitbitsample.network.RestCall;
@@ -20,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GetUserModel extends BaseAndroidViewModel<Integer, UserInfo, Void, GetUserModel> {
-
+    private String dateOfBirth, fullName, gender, height, weight;
     public GetUserModel(int errorCode) {
         super(true, errorCode);
     }
@@ -34,6 +38,13 @@ public class GetUserModel extends BaseAndroidViewModel<Integer, UserInfo, Void, 
             public void success(UserInfo userInfo) {
                 if (userInfo != null) {
                     Log.i("User Profile:", userInfo.toString());
+                    dateOfBirth = userInfo.getUser().getDateOfBirth();
+                    fullName = userInfo.getUser().getFullName();
+                    gender = userInfo.getUser().getGender();
+                    height = userInfo.getUser().getHeight().toString();
+                    weight = userInfo.getUser().getWeight().toString();
+                    FitbitUser fitbitUser = new FitbitUser(dateOfBirth,fullName,gender,height,weight);
+                    FitbitPref.getInstance(context).savefitbitdata(fitbitUser);
                     PaperDB.getInstance().write(PaperConstants.PROFILE, userInfo);
                     data.postValue(0);
                 } else {

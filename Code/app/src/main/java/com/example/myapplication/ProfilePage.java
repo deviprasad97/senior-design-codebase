@@ -15,6 +15,9 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fitbitsample.fitbitdata.FitbitPref;
+import com.fitbitsample.fitbitdata.FitbitUser;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +47,6 @@ public class ProfilePage extends AppCompatActivity {
     private TextView email;
     private Button weightlog;
 
-
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class ProfilePage extends AppCompatActivity {
         //choose profile image from media
         weightlog=(Button)findViewById(R.id.button_weightlog);
         profileImage = (CircleImageView) findViewById(R.id.profile_image);
-        weightlog.setOnClickListener(new View.OnClickListener() {
+        /*weightlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = null;
@@ -66,7 +68,7 @@ public class ProfilePage extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
         profileImage.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
             @Override
@@ -82,11 +84,13 @@ public class ProfilePage extends AppCompatActivity {
         //displays user name
         fullname=findViewById(R.id.fullname);
         User user=SharedPrefManager.getInstance(this).getUser();
+        FitbitUser fitbitUser = FitbitPref.getInstance(this).getfitbitUser();
         fullname.setText(user.getFname()+" "+user.getLname());
 
         //...zip
         gender = findViewById(R.id.genderAge);
-        gender.setText(user.getGender());
+        //gender.setText(user.getGender());
+        gender.setText(fitbitUser.getDateOfBirth());
 
         //displays address
         address1 = findViewById(R.id.address1);
