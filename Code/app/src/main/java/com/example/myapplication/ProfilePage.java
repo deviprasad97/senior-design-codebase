@@ -15,9 +15,6 @@ import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.fitbitsample.fitbitdata.FitbitPref;
-import com.fitbitsample.fitbitdata.FitbitUser;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +51,8 @@ public class ProfilePage extends AppCompatActivity {
         setContentView(R.layout.activity_profile_page);
 
         //choose profile image from media
-        weightlog=(Button)findViewById(R.id.button_weightlog);
-        profileImage = (CircleImageView) findViewById(R.id.profile_image);
+        weightlog= findViewById(R.id.button_weightlog);
+        profileImage = findViewById(R.id.profile_image);
         /*weightlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,7 +113,6 @@ public class ProfilePage extends AppCompatActivity {
         List axisValues = new ArrayList();
 
         Line line = new Line(yAxisValues).setColor(Color.parseColor("#121493"));
-        ;
         for (int i = 0; i < axisData.length; i++) {
             axisValues.add(i, new AxisValue(i).setLabel(axisData[i]));
         }

@@ -18,7 +18,7 @@ public class Welcomescreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcomescreen);
         Button getStartedButton = findViewById(R.id.button_get_started);
-        Login = (TextView) findViewById(R.id.loginbutton);
+        Login = findViewById(R.id.loginbutton);
         final GetStartedListDialogFragment getStartedListDialogFragment =
                 GetStartedListDialogFragment.newInstance();
         getStartedButton.setOnClickListener(new View.OnClickListener() {

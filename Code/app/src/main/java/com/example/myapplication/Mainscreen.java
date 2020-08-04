@@ -15,7 +15,7 @@ public class Mainscreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainscreen);
 
-        final Button tempbutton= (Button) findViewById(R.id.tempbutton);
+        final Button tempbutton= findViewById(R.id.tempbutton);
 
         tempbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,7 +25,7 @@ public class Mainscreen extends AppCompatActivity {
             }
         });
 
-        final Button tempbutton2= (Button) findViewById(R.id.tempbutton2);
+        final Button tempbutton2= findViewById(R.id.tempbutton2);
         tempbutton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

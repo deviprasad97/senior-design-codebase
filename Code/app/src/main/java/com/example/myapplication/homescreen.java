@@ -16,9 +16,9 @@ public class homescreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
 
-        home=(ImageView)  findViewById(R.id.selected);
-        you=(ImageView) findViewById(R.id.you);
-        program=(ImageView) findViewById(R.id.program);
+        home= findViewById(R.id.selected);
+        you= findViewById(R.id.you);
+        program= findViewById(R.id.program);
         //settings=(ImageView) findViewById(R.id.settings);
         home.setOnClickListener(new View.OnClickListener() {
             @Override

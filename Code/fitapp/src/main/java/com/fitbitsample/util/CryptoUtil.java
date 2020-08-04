@@ -2,6 +2,7 @@ package com.fitbitsample.util;
 
 import android.util.Base64;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 
@@ -15,7 +16,7 @@ public class CryptoUtil {
 
     public static String getCodeChallenge(String verifier) {
         try {
-            byte[] bytes = verifier.getBytes("US-ASCII");
+            byte[] bytes = verifier.getBytes(StandardCharsets.US_ASCII);
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             md.update(bytes, 0, bytes.length);
             byte[] digest = md.digest();
@@ -31,7 +32,7 @@ public class CryptoUtil {
 
     public static String getEncodedValue(String text) {
         try {
-            byte[] data = text.getBytes("UTF-8");
+            byte[] data = text.getBytes(StandardCharsets.UTF_8);
             return Base64.encodeToString(data, Base64.NO_WRAP);
         } catch (Exception ex) {
             return null;

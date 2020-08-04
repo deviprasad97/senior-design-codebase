@@ -54,8 +54,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
         findViewById(R.id.register).setOnClickListener(this);
         findViewById(R.id.button_sign_in).setOnClickListener(this);
-        editTextEmail=(EditText)findViewById(R.id.comp_username);
-        editTextPassword=(EditText)findViewById(R.id.customer_pass);
+        editTextEmail= findViewById(R.id.comp_username);
+        editTextPassword= findViewById(R.id.customer_pass);
         /*Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

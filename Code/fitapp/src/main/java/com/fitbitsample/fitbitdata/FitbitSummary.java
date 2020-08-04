@@ -1,11 +1,5 @@
 package com.fitbitsample.fitbitdata;
 
-import com.fitbitsample.viewmodel.response.Steps.Distance;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
-
 public class FitbitSummary {
     private Integer activeScore, activityCalories, caloriesBMR, caloriesOut, fairlyActiveMinutes, lightlyActiveMinutes, marginalCalories, sedentaryMinutes, steps, veryActiveMinutes;
 
@@ -38,7 +32,7 @@ public class FitbitSummary {
         this.activityCalories = activityCalories;
     }
 
-    public Integer getCaloriesBMR() {
+    public  Integer getCaloriesBMR() {
         return caloriesBMR;
     }
 
@@ -86,7 +80,7 @@ public class FitbitSummary {
         this.sedentaryMinutes = sedentaryMinutes;
     }
 
-    public Integer getSteps() {
+    public  Integer getSteps() {
         return steps;
     }
 

@@ -58,7 +58,7 @@ public class RetrofitService {
                 Request.Builder builder = original.newBuilder()
                         .header("Accept", accept.length == 0 ? "application/json" : accept[0])
                         .header("User-Agent", "android")
-                        .header("version-name", String.valueOf(BuildConfig.VERSION_NAME))
+                        .header("version-name", BuildConfig.VERSION_NAME)
                         .header("version-code", String.valueOf(BuildConfig.VERSION_CODE));
                 if (fullAuthToken != null && session) {
                     builder.header(AUTHORIZATION, fullAuthToken);
