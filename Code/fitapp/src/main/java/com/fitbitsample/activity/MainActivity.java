@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         boolean haveToken = AppPreference.getInstance().getBoolean(PrefConstants.HAVE_AUTHORIZATION, false);
         if (!haveToken) {
             showLogin();
+            finishAfterTransition();
         } else {
             showDashboard();
         }

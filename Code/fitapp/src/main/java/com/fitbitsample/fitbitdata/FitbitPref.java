@@ -31,6 +31,7 @@ public class FitbitPref {
         editor.putString("gender",fitbitUser.getGender());
         editor.putString("height",fitbitUser.getHeight());
         editor.putString("weight",fitbitUser.getWeight());
+        editor.putString("age",fitbitUser.getAge());
         editor.apply();
     }
 
@@ -41,7 +42,8 @@ public class FitbitPref {
                 sharedPreferences.getString("fullName",null),
                 sharedPreferences.getString("gender",null),
                 sharedPreferences.getString("height",null),
-                sharedPreferences.getString("weight",null)
+                sharedPreferences.getString("weight",null),
+                sharedPreferences.getString("age",null)
         );
     }
 
@@ -59,6 +61,13 @@ public class FitbitPref {
         editor.putInt("sedentaryMinutes",fitbitSummary.getSedentaryMinutes());
         editor.putInt("steps",fitbitSummary.getSteps());
         editor.putInt("veryActiveMinutes",fitbitSummary.getVeryActiveMinutes());
+        editor.putString("total",fitbitSummary.getTotal());
+        editor.putString("tracker",fitbitSummary.getTracker());
+        editor.putString("loggedActivities",fitbitSummary.getLoggedActivities());
+        editor.putString("veryActive",fitbitSummary.getVeryActive());
+        editor.putString("moderatelyActive",fitbitSummary.getModeratelyActive());
+        editor.putString("lightlyActive",fitbitSummary.getLightlyActive());
+        editor.putString("sedentaryActive",fitbitSummary.getSedentaryActive());
         editor.apply();
     }
     public FitbitSummary getfitbitSummary() {
@@ -73,8 +82,14 @@ public class FitbitPref {
                 sharedPreferences.getInt("marginalCalories",0),
                 sharedPreferences.getInt("sedentaryMinutes",0),
                 sharedPreferences.getInt("steps",0),
-                sharedPreferences.getInt("veryActiveMinutes",0)
-
+                sharedPreferences.getInt("veryActiveMinutes",0),
+                sharedPreferences.getString("total",null),
+                sharedPreferences.getString("tracker",null),
+                sharedPreferences.getString("loggedActivities",null),
+                sharedPreferences.getString("veryActive",null),
+                sharedPreferences.getString("moderatelyActive",null),
+                sharedPreferences.getString("lightlyActive",null),
+                sharedPreferences.getString("sedentaryActive",null)
         );
     }
 

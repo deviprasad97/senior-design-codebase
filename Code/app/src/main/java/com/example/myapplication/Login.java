@@ -101,7 +101,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                            Toast.makeText(Login.this, loginResponse.getAuth_token(), Toast.LENGTH_LONG).show();
                            SharedPrefManager.getInstance(Login.this)
                                    .saveUser(loginResponse.getUser());
-
+                           SharedPrefManager.getInstance(Login.this).saveLoginResponse(loginResponse);
                            Intent intent = new Intent(Login.this, homescreen.class);
                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                            startActivity(intent);

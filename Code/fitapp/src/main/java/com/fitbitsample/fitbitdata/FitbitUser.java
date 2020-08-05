@@ -1,14 +1,23 @@
 package com.fitbitsample.fitbitdata;
 
 public class FitbitUser {
-    private String dateOfBirth, fullName, gender, height, weight;
+    private String dateOfBirth, fullName, gender, height, weight, age;
 
-    public FitbitUser(String dateOfBirth, String fullName, String gender, String height, String weight) {
+    public FitbitUser(String dateOfBirth, String fullName, String gender, String height, String weight, String age) {
         this.dateOfBirth = dateOfBirth;
         this.fullName = fullName;
         this.gender = gender;
         this.height = height;
         this.weight = weight;
+        this.age = age;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public void setDateOfBirth(String dateOfBirth) {

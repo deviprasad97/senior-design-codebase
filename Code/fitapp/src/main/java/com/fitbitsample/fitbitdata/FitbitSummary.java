@@ -2,8 +2,9 @@ package com.fitbitsample.fitbitdata;
 
 public class FitbitSummary {
     private Integer activeScore, activityCalories, caloriesBMR, caloriesOut, fairlyActiveMinutes, lightlyActiveMinutes, marginalCalories, sedentaryMinutes, steps, veryActiveMinutes;
+    private String total, tracker, loggedActivities, veryActive, moderatelyActive, lightlyActive, sedentaryActive;
 
-    public FitbitSummary(Integer activeScore, Integer activityCalories, Integer caloriesBMR, Integer caloriesOut, Integer fairlyActiveMinutes, Integer lightlyActiveMinutes, Integer marginalCalories, Integer sedentaryMinutes, Integer steps, Integer veryActiveMinutes) {
+    public FitbitSummary(Integer activeScore, Integer activityCalories, Integer caloriesBMR, Integer caloriesOut, Integer fairlyActiveMinutes, Integer lightlyActiveMinutes, Integer marginalCalories, Integer sedentaryMinutes, Integer steps, Integer veryActiveMinutes, String total, String tracker, String loggedActivities, String veryActive, String moderatelyActive, String lightlyActive, String sedentaryActive) {
         this.activeScore = activeScore;
         this.activityCalories = activityCalories;
         this.caloriesBMR = caloriesBMR;
@@ -14,6 +15,13 @@ public class FitbitSummary {
         this.sedentaryMinutes = sedentaryMinutes;
         this.steps = steps;
         this.veryActiveMinutes = veryActiveMinutes;
+        this.total = total;
+        this.tracker = tracker;
+        this.loggedActivities = loggedActivities;
+        this.veryActive = veryActive;
+        this.moderatelyActive = moderatelyActive;
+        this.lightlyActive = lightlyActive;
+        this.sedentaryActive = sedentaryActive;
     }
 
     public Integer getActiveScore() {
@@ -32,7 +40,7 @@ public class FitbitSummary {
         this.activityCalories = activityCalories;
     }
 
-    public  Integer getCaloriesBMR() {
+    public Integer getCaloriesBMR() {
         return caloriesBMR;
     }
 
@@ -80,7 +88,7 @@ public class FitbitSummary {
         this.sedentaryMinutes = sedentaryMinutes;
     }
 
-    public  Integer getSteps() {
+    public Integer getSteps() {
         return steps;
     }
 
@@ -94,5 +102,61 @@ public class FitbitSummary {
 
     public void setVeryActiveMinutes(Integer veryActiveMinutes) {
         this.veryActiveMinutes = veryActiveMinutes;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public String getTracker() {
+        return tracker;
+    }
+
+    public void setTracker(String tracker) {
+        this.tracker = tracker;
+    }
+
+    public String getLoggedActivities() {
+        return loggedActivities;
+    }
+
+    public void setLoggedActivities(String loggedActivities) {
+        this.loggedActivities = loggedActivities;
+    }
+
+    public String getVeryActive() {
+        return veryActive;
+    }
+
+    public void setVeryActive(String veryActive) {
+        this.veryActive = veryActive;
+    }
+
+    public String getModeratelyActive() {
+        return moderatelyActive;
+    }
+
+    public void setModeratelyActive(String moderatelyActive) {
+        this.moderatelyActive = moderatelyActive;
+    }
+
+    public String getLightlyActive() {
+        return lightlyActive;
+    }
+
+    public void setLightlyActive(String lightlyActive) {
+        this.lightlyActive = lightlyActive;
+    }
+
+    public String getSedentaryActive() {
+        return sedentaryActive;
+    }
+
+    public void setSedentaryActive(String sedentaryActive) {
+        this.sedentaryActive = sedentaryActive;
     }
 }

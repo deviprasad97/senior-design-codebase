@@ -15,6 +15,7 @@ import com.fitbitsample.preference.AppPreference;
 import com.fitbitsample.util.Trace;
 import com.fitbitsample.viewmodel.response.OAuthResponse;
 import com.fitbitsample.viewmodel.response.Steps.ActivityInfo;
+import com.fitbitsample.viewmodel.response.Steps.Distance;
 import com.fitbitsample.viewmodel.response.sleep.SleepInfo;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.Map;
 
 public class GetActivityModel extends BaseAndroidViewModel<Integer, ActivityInfo, String, GetActivityModel> {
     private Integer activeScore, activityCalories, caloriesBMR, caloriesOut, fairlyActiveMinutes, lightlyActiveMinutes, marginalCalories, sedentaryMinutes, steps, veryActiveMinutes;
+    private String distance, total, tracker, loggedActivities, veryActive, moderatelyActive, lightlyActive, sedentaryActive;
     public GetActivityModel(int errorCode) {
         super(true, errorCode);
     }
@@ -44,8 +46,42 @@ public class GetActivityModel extends BaseAndroidViewModel<Integer, ActivityInfo
                     sedentaryMinutes = activityInfo.getSummary().getSedentaryMinutes();
                     steps = activityInfo.getSummary().getSteps();
                     veryActiveMinutes = activityInfo.getSummary().getVeryActiveMinutes();
-                    FitbitSummary fitbitSummary = new FitbitSummary(activeScore, activityCalories, caloriesBMR, caloriesOut, fairlyActiveMinutes, lightlyActiveMinutes, marginalCalories, sedentaryMinutes, steps, veryActiveMinutes);
+                    List<Distance> distances = activityInfo.getSummary().getDistances();
+                    for(Distance d: distances)
+                    {
+                        if(d.getActivity().equals("total"))
+                        {
+                            total = d.getDistance().toString();
+                        }
+                        else if(d.getActivity().equals("tracker"))
+                        {
+                            tracker = d.getDistance().toString();
+                        }
+                        else if(d.getActivity().equals("loggedActivities"))
+                        {
+                            loggedActivities = d.getDistance().toString();
+                        }
+                        else if(d.getActivity().equals("veryActive"))
+                        {
+                            veryActive = d.getDistance().toString();
+                        }
+                        else if(d.getActivity().equals("moderatelyActive"))
+                        {
+                            moderatelyActive = d.getDistance().toString();
+                        }
+                        else if(d.getActivity().equals("lightlyActive"))
+                        {
+                            lightlyActive = d.getDistance().toString();
+                        }
+                        else if(d.getActivity().equals("sedentaryActive"))
+                        {
+                            sedentaryActive = d.getDistance().toString();
+                        }
+                    }
+
+                    FitbitSummary fitbitSummary = new FitbitSummary(activeScore, activityCalories, caloriesBMR, caloriesOut, fairlyActiveMinutes, lightlyActiveMinutes, marginalCalories, sedentaryMinutes, steps, veryActiveMinutes, total, tracker, loggedActivities, veryActive, moderatelyActive, lightlyActive, sedentaryActive);
                     FitbitPref.getInstance(context).saveFitbitSummary(fitbitSummary);
+
 
                     PaperDB.getInstance().write(PaperConstants.ACTIVITY_INFO, activityInfo);
                     data.postValue(0);

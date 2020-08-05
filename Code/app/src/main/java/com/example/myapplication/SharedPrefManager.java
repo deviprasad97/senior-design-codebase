@@ -70,13 +70,27 @@ public class SharedPrefManager {
                 sharedPreferences.getBoolean("profile_pic", true),
                 sharedPreferences.getInt("user_id", -1)
 
-
-
-
-
-
         );
     }
+    public void saveLoginResponse (LoginResponse loginResponse) {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("auth_token", loginResponse.getAuth_token());
+        editor.putString("message",loginResponse.getMessage());
+        editor.putString("status", loginResponse.getStatus());
+        editor.apply();
+    }
+    public LoginResponse getLoginResponse() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return new LoginResponse(
+                sharedPreferences.getString("auth_token", null),
+                sharedPreferences.getString("message", null),
+                sharedPreferences.getString("status", null)
+        );
+
+    }
+
     public void clear() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

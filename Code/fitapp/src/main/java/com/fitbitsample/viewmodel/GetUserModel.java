@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GetUserModel extends BaseAndroidViewModel<Integer, UserInfo, Void, GetUserModel> {
-    private String dateOfBirth, fullName, gender, height, weight;
+    private String dateOfBirth, fullName, gender, height, weight, age;
     public GetUserModel(int errorCode) {
         super(true, errorCode);
     }
@@ -44,8 +44,9 @@ public class GetUserModel extends BaseAndroidViewModel<Integer, UserInfo, Void, 
                     gender = userInfo.getUser().getGender();
                     height = userInfo.getUser().getHeight().toString();
                     weight = userInfo.getUser().getWeight().toString();
+                    age = userInfo.getUser().getAge().toString();
 
-                    FitbitUser fitbitUser = new FitbitUser(dateOfBirth,fullName,gender,height,weight);
+                    FitbitUser fitbitUser = new FitbitUser(dateOfBirth,fullName,gender,height,weight,age);
                     FitbitPref.getInstance(context).savefitbitdata(fitbitUser);
 
                     PaperDB.getInstance().write(PaperConstants.PROFILE, userInfo);

@@ -14,6 +14,12 @@ public class LoginResponse {
         this.user=user;
     }
 
+    public LoginResponse(String auth_token, String message, String status) {
+        this.auth_token = auth_token;
+        this.message = message;
+        this.status = status;
+    }
+
     public String getAuth_token() {
         return auth_token;
     }
