@@ -4,6 +4,7 @@ package com.fitbitsample.activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -11,12 +12,19 @@ import androidx.databinding.DataBindingUtil;
 import com.fitbitsample.R;
 import com.fitbitsample.constant.PrefConstants;
 import com.fitbitsample.databinding.ActivityMainBinding;
+import com.fitbitsample.fitbitdata.FitbitPref;
+import com.fitbitsample.fitbitdata.FitbitSummary;
 import com.fitbitsample.fragment.DashBoardFragment;
 import com.fitbitsample.fragment.LoginFragment;
 import com.fitbitsample.preference.AppPreference;
 import com.fitbitsample.util.FragmentStack;
 import com.fitbitsample.util.FragmentStackHandler;
 import com.fitbitsample.util.StringUtil;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -91,6 +99,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }
