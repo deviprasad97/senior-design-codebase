@@ -1,12 +1,16 @@
 package com.example.myapplication.amazonS3;
 
+import android.content.Context;
 import android.os.Build;
+import android.os.Environment;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobileconnectors.s3.transfermanager.Upload;
+import com.amazonaws.mobileconnectors.s3.transferutility.TransferObserver;
 import com.amazonaws.mobileconnectors.s3.transferutility.TransferUtility;
 import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
@@ -16,7 +20,9 @@ import com.fitbitsample.fitbitdata.FitbitPref;
 import com.fitbitsample.fitbitdata.FitbitSummary;
 import com.fitbitsample.fitbitdata.FitbitUser;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,14 +31,16 @@ public class amazonS3main extends AppCompatActivity {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void main() throws Exception {
+    public void main(Context context) throws Exception {
 
-        final String bucketName = "statefarmuta2020";
-        final String keyName = "FitBitData";
-        final String accessKey = "AKIAY25P2SXYFRBZZYG7";
-        final String secretAccessKey = "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";
-        final String file_path = "C:\\Users\\sbhad\\Documents\\SD_Project\\senior-design-codebase\\Code\\app\\src\\main\\java\\com\\example\\myapplication\\amazonS3\\text.txt";
-
+        final String bucketName = "mobiledevt";
+        final String keyName = "sample3.txt";
+        //final String accessKey = "AKIAY25P2SXYFRBZZYG7";
+        // final String secretAccessKey = "giuJa/xZywpMaRZDYarGzYjkKsXCvDwVXfcBU2dl";
+        //final String filepath = "C:\\Users\\sbhad\\Documents\\SD_Project\\senior-design-codebase\\Code\\app\\src\\main\\java\\com\\example\\myapplication\\amazonS3\\sample.txt";
+        //final String filepath = "C:\\Users\\sbhad\\Documents\\senior-design-codebase\\Code\\app\\src\\main\\java\\com\\example\\myapplication\\amazonS3\\burn.png" ;
+        //String sdcard = Environment.getExternalStorageDirectory().getPath();
+        //String filepath = sdcard + "/Downloads/IMG_20200804_223356.jpg";
 
         //LocalDate today = LocalDate.now();
         List<String> health_attributes = new ArrayList<>();
@@ -53,50 +61,26 @@ public class amazonS3main extends AppCompatActivity {
         health_attributes.add("caloriesOut" + " " + fitbitSummary.getCaloriesOut().toString());
         health_attributes.add("marginalCalories" + " " + fitbitSummary.getMarginalCalories().toString());
 
-        AmazonS3 s3Client = new AmazonS3Client(new BasicAWSCredentials(accessKey, secretAccessKey));
-        s3Client.setRegion(Region.getRegion(Regions.US_EAST_1));
+        File file = new File(context.getFilesDir(), "sample3.txt");
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        writer.append("Howdy World!");
+        writer.close();
 
-        //String bucket = "bucket name";
-        //SimpleDateFormat td = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
-        //String currentDateandTime = td.format(new Date());
-        //String key = currentDateandTime + getFileExtension(file);
-        TransferUtility transferUtility = TransferUtility.builder().context(this).s3Client(s3Client).build();
-        Upload uploadMedia = (Upload) transferUtility.upload(bucketName,keyName, new File(file_path));
+        // Initialize the Amazon Cognito credentials provider
+        CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
+                context,
+                "us-east-1:913d729e-fc5f-42cf-8057-572795207284", // Identity pool ID
+                Regions.US_EAST_1 // Region
+        );
 
-        System.out.print("Success Upload");
-        /*
-        uploadMedia.setTransferListener(new TransferListener() {
-                                            public void onStateChanged(int id, String newState) {
-                                                // Do something in the callback.
-                                            }
+        AmazonS3 s3 = new AmazonS3Client(credentialsProvider);
+        TransferUtility transferUtility = new TransferUtility(s3, context);
+        TransferObserver observer = transferUtility.upload(
+                bucketName,//this is the bucket name on S3
+                keyName , //this is the path and name
+                new File(context.getFilesDir(),"sample3.txt") //path to the file locally
+        );
 
-                                        });
-
-         */
-        /*
-        try {
-            AWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretAccessKey);
-
-            // TransferManager manages its own thread pool, so
-            // please share it when possible.
-            TransferManager manager = new TransferManager(awsCredentials);
-
-            // Transfer a file to an S3 bucket.
-            Upload upload = manager.upload(bucketName, keyName, new File(file_path));
-
-
-            System.out.println("Object upload started");
-
-            upload.waitForCompletion();
-            System.out.println("Object upload complete");
-        } catch (AmazonServiceException e) {
-            e.printStackTrace();
-        } catch (SdkClientException e) {
-
-            e.printStackTrace();
-        }
-
-         */
 
     }
 }

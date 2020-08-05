@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -45,9 +46,10 @@ public class health_status extends AppCompatActivity {
 
         Toast.makeText(this,data,Toast.LENGTH_LONG).show();
 
+        Context context = getApplicationContext();
         amazonS3main az = new amazonS3main();
         try {
-            az.main();
+            az.main(context);
         } catch (Exception e) {
             e.printStackTrace();
         }
