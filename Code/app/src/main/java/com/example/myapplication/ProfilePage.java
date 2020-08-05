@@ -1,25 +1,35 @@
 package com.example.myapplication;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fitbitsample.fitbitdata.FitbitPref;
+import com.fitbitsample.fitbitdata.FitbitSummary;
 import com.fitbitsample.fitbitdata.FitbitUser;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -106,6 +116,8 @@ public class ProfilePage extends AppCompatActivity {
         email = findViewById(R.id.email);
         email.setText(user.getEmail());
 
+        writedatatofile();
+
         //weight log graph
         LineChartView lineChartView = findViewById(R.id.showGraph);
 
@@ -178,6 +190,122 @@ public class ProfilePage extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+    private void writedatatofile()
+    {
+
+        try{
+
+            OutputStream writer = new FileOutputStream(Environment.getExternalStorageDirectory().getAbsolutePath()+"/fitdata.csv");
+            FitbitSummary fitbitSummary = FitbitPref.getInstance(this).getfitbitSummary();
+            LoginResponse loginResponse = SharedPrefManager.getInstance(this).getLoginResponse();
+            User user = SharedPrefManager.getInstance(this).getUser();
+
+            StringBuilder newdata = new StringBuilder();
+            newdata.append("auth_token");
+            newdata.append(',');
+            newdata.append("id");
+            newdata.append(',');
+            newdata.append("date");
+            newdata.append(',');
+            newdata.append("activeScore");
+            newdata.append(',');
+            newdata.append("activityCalories");
+            newdata.append(',');
+            newdata.append("caloriesBMR");
+            newdata.append(',');
+            newdata.append("caloriesOut");
+            newdata.append(',');
+            newdata.append("marginalCalories");
+            newdata.append(',');
+            newdata.append("steps");
+            newdata.append(',');
+
+            newdata.append("totaldistance");
+            newdata.append(',');
+            newdata.append("trackerdistance");
+            newdata.append(',');
+
+            newdata.append("loggedActivitiesdistance");
+            newdata.append(',');
+            newdata.append("moderateActivedistance");
+            newdata.append(',');
+
+            newdata.append("veryActivedistance");
+            newdata.append(',');
+            newdata.append("veryActiveMinutes");
+            newdata.append(',');
+
+            newdata.append("lightlyActivedistance");
+            newdata.append(',');
+            newdata.append("lightlyActiveMinutes");
+            newdata.append(',');
+
+            newdata.append("sedentaryActivedistance");
+            newdata.append(',');
+            newdata.append("sedentaryMinutes");
+            newdata.append(',');
+
+            newdata.append("restingHeartRate");
+            newdata.append('\n');
+
+            newdata.append(loginResponse.getAuth_token());
+            newdata.append(',');
+            newdata.append(user.getUser_id());
+            newdata.append(',');
+            newdata.append(Calendar.getInstance().getTime().toString());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getActiveScore().toString());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getActivityCalories().toString());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getCaloriesBMR().toString());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getCaloriesOut().toString());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getMarginalCalories().toString());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getSteps());
+            newdata.append(',');
+
+            newdata.append(fitbitSummary.getTotal());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getTracker());
+            newdata.append(',');
+
+
+            newdata.append(fitbitSummary.getLoggedActivities());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getModeratelyActive());
+            newdata.append(',');
+
+            newdata.append(fitbitSummary.getVeryActive());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getVeryActiveMinutes());
+            newdata.append(',');
+
+            newdata.append(fitbitSummary.getLightlyActive());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getLightlyActiveMinutes());
+            newdata.append(',');
+
+            newdata.append(fitbitSummary.getSedentaryActive());
+            newdata.append(',');
+            newdata.append(fitbitSummary.getSedentaryMinutes().toString());
+
+            newdata.append("\n");
+
+            writer.write(newdata.toString().getBytes());
+            writer.close();
+            Toast.makeText(this,"Done",Toast.LENGTH_LONG).show();
+
+            System.out.println("complete");
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            Toast.makeText(this,"Not Done",Toast.LENGTH_LONG).show();
+        }
+
     }
 }
 
