@@ -88,7 +88,7 @@ public class DashBoardFragment extends BaseFragment {
 
     private void getUserProfile() {
         GetUserModel getUserModel = new GetUserModel(1);
-        getUserModel.run(context, null).getData().observe(this, new Observer<Integer>() {
+        getUserModel.run(context, null).getData().observe(this, new Observer<Integer>(){
             @Override
             public void onChanged(@Nullable Integer integer) {
                 if (integer != null && integer > 0) {
@@ -103,7 +103,7 @@ public class DashBoardFragment extends BaseFragment {
 
     private void getHeartRate() {
         GetHrModel hrModel = new GetHrModel(1);
-        hrModel.run(context,DateUtil.convertDateFormat(new Date()), "7d").getData().observe(this, new Observer<Integer>() {
+        hrModel.run(context,DateUtil.convertDateFormat(new Date()), "1d").getData().observe(this, new Observer<Integer>(){
             @Override
             public void onChanged(@Nullable Integer integer) {
                 if (integer != null && integer > 0) {

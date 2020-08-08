@@ -33,7 +33,7 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="hugfit" android:host="logincallback" />
+                <data android:scheme="fit" android:host="logincallback" />
             </intent-filter>
         </activity>
     </application>

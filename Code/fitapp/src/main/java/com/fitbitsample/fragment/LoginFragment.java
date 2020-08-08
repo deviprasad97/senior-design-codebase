@@ -81,7 +81,7 @@ public class LoginFragment extends BaseFragment {
                             "&client_id=22BVT2" +
                             "&expires_in=604800" +
                             "&scope=activity%20nutrition%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight" +
-                            "&redirect_uri=hugfit://logincallback" +
+                            "&redirect_uri=fit://logincallback" +
                             "&prompt=login";
                     customTabsIntent.launchUrl(getActivity(), Uri.parse(url));
                 } else {
