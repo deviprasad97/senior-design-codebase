@@ -69,8 +69,8 @@ public class LoginFragment extends BaseFragment {
                 .build();
         haveToken = AppPreference.getInstance().getBoolean(PrefConstants.HAVE_AUTHORIZATION, false);
 
-        /** client_id, which is provided by fitbit while registering app
-            redirect_uri, provided by you when register app in fitbit.
+        /*
+        Here use the client Id received after registration of the app.
         */
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -22,19 +22,22 @@ import com.fitbitsample.fitbitdata.HeartRateInfo;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class amazonS3main extends AppCompatActivity {
 
+    String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
     User user = SharedPrefManager.getInstance(this).getUser();
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void main(Context context) throws Exception {
-
         final String bucketName = "mobiledevt";
-        final String keyName = "Date "+Calendar.getInstance().getTime().toString()+" User_id_"+user.getUser_id()+"_fitbitdata.csv";
+        final String keyName = "Date_"+date+"_User_id_"+user.getUser_id()+"_fitbitdata.csv";
         //final String accessKey = "AKIAY25P2SXYFRBZZYG7";
         // final String secretAccessKey = "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";
         //final String filepath = "C:\\Users\\sbhad\\Documents\\SD_Project\\senior-design-codebase\\Code\\app\\src\\main\\java\\com\\example\\myapplication\\amazonS3\\sample.txt";
@@ -83,7 +86,7 @@ public class amazonS3main extends AppCompatActivity {
     private void writedatatofile(String bucketName, String keyName,CognitoCachingCredentialsProvider credentialsProvider,Context context)
     {
         try{
-            File file = new File(context.getFilesDir(),"Date"+Calendar.getInstance().getTime().toString()+"User_id_"+user.getUser_id()+"_fitbitdata.csv");
+            File file = new File(context.getFilesDir(),"Date_"+date+"_User_id_"+user.getUser_id()+"_fitbitdata.csv");
 
             //OutputStream writer = new FileOutputStream(Environment.getExternalStorageDirectory().getAbsolutePath()+"/fitdata.csv");
             FileWriter writer = new FileWriter(file.getAbsoluteFile());
@@ -204,7 +207,7 @@ public class amazonS3main extends AppCompatActivity {
         TransferObserver observer = transferUtility.upload(
                 bucketName,//this is the bucket name on S3
                 keyName , //this is the path and name
-                new File(context.getFilesDir(),"Date"+Calendar.getInstance().getTime().toString()+"User_id_"+user.getUser_id()+"_fitbitdata.csv") //path to the file locally
+                new File(context.getFilesDir(),"Date_"+date+"_User_id_"+user.getUser_id()+"_fitbitdata.csv") //path to the file locally
         );
 
     }
