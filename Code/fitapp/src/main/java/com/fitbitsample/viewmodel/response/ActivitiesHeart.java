@@ -30,9 +30,9 @@ public class ActivitiesHeart {
 
     @Override
     public String toString() {
-        return "\nActivitiesHeart{" +
-                "dateTime='" + dateTime + '\'' +
-                ", value=" + value +
+        return "ActivitiesHeart{" +
+                "dateTime=" + dateTime +
+                "|value=" + value +
                 '}';
     }
 }

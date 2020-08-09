@@ -187,5 +187,7 @@ public class DashBoardFragment extends BaseFragment {
         if (activityInfo != null) {
             dashboardBinding.setActivity(activityInfo.toString());
         }
+
     }
+
 }

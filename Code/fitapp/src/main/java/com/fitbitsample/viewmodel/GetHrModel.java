@@ -2,15 +2,20 @@ package com.fitbitsample.viewmodel;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.fitbitsample.constant.PrefConstants;
 import com.fitbitsample.db.paper.PaperConstants;
 import com.fitbitsample.db.paper.PaperDB;
+import com.fitbitsample.fitbitdata.FitbitPref;
+import com.fitbitsample.fitbitdata.HeartRateInfo;
 import com.fitbitsample.network.NetworkError;
 import com.fitbitsample.network.NetworkListener;
 import com.fitbitsample.network.RestCall;
 import com.fitbitsample.preference.AppPreference;
+import com.fitbitsample.viewmodel.response.ActivitiesHeart;
 import com.fitbitsample.viewmodel.response.HeartRate;
+import com.fitbitsample.viewmodel.response.Value;
 
 import java.util.List;
 import java.util.Map;
@@ -30,7 +35,9 @@ public class GetHrModel extends BaseAndroidViewModel<Integer, HeartRate, String[
             public void success(HeartRate heartRate) {
                 if (heartRate != null) {
                     Log.i("Hr:", heartRate.toString());
-                    //Toast.makeText(context,heartRate.toString(),Toast.LENGTH_LONG).show();
+                    FitbitPref.getInstance(context).saveHeartData(new HeartRateInfo(heartRate.toString().replaceAll("[\\n\\t ]", "").replace(",","|")));
+                    //Value value = heartRate.getActivitiesHeart().contains(Value);
+                    //Toast.makeText(context,averageheartrate,Toast.LENGTH_LONG).show();
                     PaperDB.getInstance().write(PaperConstants.HEART_RATE, heartRate);
                     data.postValue(0);
                 } else {

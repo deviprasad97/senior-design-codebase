@@ -64,11 +64,11 @@ public class HeartRateZone {
     @Override
     public String toString() {
         return "HeartRateZone{" +
-                "\ncaloriesOut=" + caloriesOut +
-                ", \nmax=" + max +
-                ", \nmin=" + min +
-                ", \nminutes=" + minutes +
-                ", \nname='" + name + '\'' +
+                "caloriesOut=" + caloriesOut +
+                "|max=" + max +
+                "|min=" + min +
+                "|minutes=" + minutes +
+                "|name='" + name +
                 '}';
     }
 }

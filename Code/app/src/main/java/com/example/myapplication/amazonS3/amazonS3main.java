@@ -17,6 +17,7 @@ import com.example.myapplication.SharedPrefManager;
 import com.example.myapplication.User;
 import com.fitbitsample.fitbitdata.FitbitPref;
 import com.fitbitsample.fitbitdata.FitbitSummary;
+import com.fitbitsample.fitbitdata.HeartRateInfo;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -91,6 +92,7 @@ public class amazonS3main extends AppCompatActivity {
             FitbitSummary fitbitSummary = FitbitPref.getInstance(this).getfitbitSummary();
             LoginResponse loginResponse = SharedPrefManager.getInstance(this).getLoginResponse();
             User user = SharedPrefManager.getInstance(this).getUser();
+            HeartRateInfo heartRateInfo = FitbitPref.getInstance(this).getHeartdata();
 
             StringBuilder newdata = new StringBuilder();
             newdata.append("auth_token");
@@ -137,7 +139,7 @@ public class amazonS3main extends AppCompatActivity {
             newdata.append("sedentaryMinutes");
             newdata.append(',');
 
-            newdata.append("restingHeartRate");
+            newdata.append("heartData");
             newdata.append('\n');
 
             newdata.append(loginResponse.getAuth_token());
@@ -183,7 +185,8 @@ public class amazonS3main extends AppCompatActivity {
             newdata.append(fitbitSummary.getSedentaryActive());
             newdata.append(',');
             newdata.append(fitbitSummary.getSedentaryMinutes().toString());
-
+            newdata.append(',');
+            newdata.append(heartRateInfo.getHeartdata());
             newdata.append("\n");
 
             writer.write(newdata.toString());

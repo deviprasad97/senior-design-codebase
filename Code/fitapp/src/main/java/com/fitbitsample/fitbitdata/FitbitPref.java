@@ -92,5 +92,19 @@ public class FitbitPref {
                 sharedPreferences.getString("sedentaryActive",null)
         );
     }
+    public void saveHeartData(HeartRateInfo heartRateInfo) {
+
+        SharedPreferences sharedPreferences = fCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("heartdata",heartRateInfo.getHeartdata());
+        editor.apply();
+    }
+    public HeartRateInfo getHeartdata() {
+        SharedPreferences sharedPreferences = fCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return new HeartRateInfo(
+                sharedPreferences.getString("heartdata",null)
+        );
+    }
+
 
 }
