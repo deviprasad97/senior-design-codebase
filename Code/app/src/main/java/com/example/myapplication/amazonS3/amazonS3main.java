@@ -23,51 +23,36 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
+/*
+  class: amazonS3main
+  Function: write the user fitbit summary data to file and then upload to S3 bucket using
+            Transfer Utility library
+            More info: https://aws.amazon.com/blogs/mobile/introducing-the-transfer-utility-for-the-aws-sdk-for-android/
 
+ */
 public class amazonS3main extends AppCompatActivity {
 
     String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
     User user = SharedPrefManager.getInstance(this).getUser();
     @RequiresApi(api = Build.VERSION_CODES.O)
+
+    /*
+        method: main
+        @param : context , get the Context from the health_status page as upload initiates
+                from this page (for now)
+        >>>>Should implement this method to initiate automatically within certain interval of time
+     */
     public void main(Context context) throws Exception {
+
+        //bucket name of the S3 bucket created
         final String bucketName = "mobiledevt";
+
+        //name of the file to be uploaded
         final String keyName = "Date_"+date+"_User_id_"+user.getUser_id()+"_fitbitdata.csv";
-        //final String accessKey = "AKIAY25P2SXYFRBZZYG7";
-        // final String secretAccessKey = "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";
-        //final String filepath = "C:\\Users\\sbhad\\Documents\\SD_Project\\senior-design-codebase\\Code\\app\\src\\main\\java\\com\\example\\myapplication\\amazonS3\\sample.txt";
-        //final String filepath = "C:\\Users\\sbhad\\Documents\\senior-design-codebase\\Code\\app\\src\\main\\java\\com\\example\\myapplication\\amazonS3\\burn.png" ;
-        //String sdcard = Environment.getExternalStorageDirectory().getPath();
-        //String filepath = sdcard + "/Downloads/IMG_20200804_223356.jpg";
-
-        //LocalDate today = LocalDate.now();
-        List<String> health_attributes = new ArrayList<>();
-
-        /*FitbitSummary fitbitSummary = FitbitPref.getInstance(this).getfitbitSummary();
-        FitbitUser fitbitUser = FitbitPref.getInstance(this).getfitbitUser();
-
-        health_attributes.add("ActivityDate");
-        health_attributes.add("TotalSteps" + " " + fitbitSummary.getSteps().toString());
-        health_attributes.add("TotalDistance");
-        health_attributes.add("fairlyActiveMinutes" + " " + fitbitSummary.getFairlyActiveMinutes().toString());
-        health_attributes.add("lightlyActiveMinutes" + " " + fitbitSummary.getLightlyActiveMinutes().toString());
-        health_attributes.add("sedentaryMinutes" + " " + fitbitSummary.getSedentaryMinutes().toString());
-        health_attributes.add("veryActiveMinutes" + " " + fitbitSummary.getVeryActiveMinutes().toString());
-        health_attributes.add("activeScore" + " " + fitbitSummary.getActiveScore().toString());
-        health_attributes.add("activityCalories" + " " + fitbitSummary.getActivityCalories().toString());
-        health_attributes.add("caloriesBMR" + " " + fitbitSummary.getCaloriesBMR().toString());
-        health_attributes.add("caloriesOut" + " " + fitbitSummary.getCaloriesOut().toString());
-        health_attributes.add("marginalCalories" + " " + fitbitSummary.getMarginalCalories().toString());
-
-        File file = new File(context.getFilesDir(), "sample3.txt");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        writer.append("Howdy World!");
-        writer.close();*/
 
         // Initialize the Amazon Cognito credentials provider
         CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider(
@@ -76,13 +61,20 @@ public class amazonS3main extends AppCompatActivity {
                 Regions.US_EAST_1 // Region
         );
 
-        //File file = new File(this.getCacheDir(),"fitbitdata.csv");
-
-
+        //method call to write fitbit data to file
         writedatatofile(bucketName,keyName,credentialsProvider,context);
 
 
     }
+
+    /*
+        method: writedatatofile()
+        @param: bucketName, type String
+        @param: keyName, type String : name of the file to upload
+        @param: credentialsProvider, type CognitoCachingCredentialsProvider
+        @param: context, type context
+        function: write data to file in .csv format and upload to S3 bucket
+     */
     private void writedatatofile(String bucketName, String keyName,CognitoCachingCredentialsProvider credentialsProvider,Context context)
     {
         try{
@@ -202,8 +194,14 @@ public class amazonS3main extends AppCompatActivity {
             System.out.println(e.getMessage());
             //Toast.makeText(this,"Not Done",Toast.LENGTH_LONG).show();
         }
+
+        //create S3 client
         AmazonS3 s3 = new AmazonS3Client(credentialsProvider);
+
+        //pass the s3 client to Transfer Utility
         TransferUtility transferUtility = new TransferUtility(s3, context);
+
+        //Upload file to S3 bucket
         TransferObserver observer = transferUtility.upload(
                 bucketName,//this is the bucket name on S3
                 keyName , //this is the path and name
@@ -213,8 +211,4 @@ public class amazonS3main extends AppCompatActivity {
     }
 }
 
-
-/*Ref:
-https://aws.amazon.com/blogs/mobile/transfermanager-for-android/
- */
 

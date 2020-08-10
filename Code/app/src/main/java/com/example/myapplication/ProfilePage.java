@@ -18,16 +18,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fitbitsample.fitbitdata.FitbitPref;
-import com.fitbitsample.fitbitdata.FitbitSummary;
 import com.fitbitsample.fitbitdata.FitbitUser;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -154,6 +148,7 @@ public class ProfilePage extends AppCompatActivity {
         viewport.top = 110;
         lineChartView.setMaximumViewport(viewport);
         lineChartView.setCurrentViewport(viewport);
+
         /*
         int i = 1;
         //badges
@@ -188,125 +183,7 @@ public class ProfilePage extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-    }/*
-    private void writedatatofile()
-    {
-
-        try{
-
-            FileOutputStream writer = openFileOutput("fitdata.csv", Context.MODE_PRIVATE);
-            FitbitSummary fitbitSummary = FitbitPref.getInstance(this).getfitbitSummary();
-            LoginResponse loginResponse = SharedPrefManager.getInstance(this).getLoginResponse();
-            User user = SharedPrefManager.getInstance(this).getUser();
-
-            StringBuilder newdata = new StringBuilder();
-            newdata.append("auth_token");
-            newdata.append(',');
-            newdata.append("id");
-            newdata.append(',');
-            newdata.append("date");
-            newdata.append(',');
-            newdata.append("activeScore");
-            newdata.append(',');
-            newdata.append("activityCalories");
-            newdata.append(',');
-            newdata.append("caloriesBMR");
-            newdata.append(',');
-            newdata.append("caloriesOut");
-            newdata.append(',');
-            newdata.append("marginalCalories");
-            newdata.append(',');
-            newdata.append("steps");
-            newdata.append(',');
-
-            newdata.append("totaldistance");
-            newdata.append(',');
-            newdata.append("trackerdistance");
-            newdata.append(',');
-
-            newdata.append("loggedActivitiesdistance");
-            newdata.append(',');
-            newdata.append("moderateActivedistance");
-            newdata.append(',');
-
-            newdata.append("veryActivedistance");
-            newdata.append(',');
-            newdata.append("veryActiveMinutes");
-            newdata.append(',');
-
-            newdata.append("lightlyActivedistance");
-            newdata.append(',');
-            newdata.append("lightlyActiveMinutes");
-            newdata.append(',');
-
-            newdata.append("sedentaryActivedistance");
-            newdata.append(',');
-            newdata.append("sedentaryMinutes");
-            newdata.append(',');
-
-            newdata.append("restingHeartRate");
-            newdata.append('\n');
-
-            newdata.append(loginResponse.getAuth_token());
-            newdata.append(',');
-            newdata.append(user.getUser_id());
-            newdata.append(',');
-            newdata.append(Calendar.getInstance().getTime().toString());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getActiveScore().toString());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getActivityCalories().toString());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getCaloriesBMR().toString());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getCaloriesOut().toString());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getMarginalCalories().toString());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getSteps());
-            newdata.append(',');
-
-            newdata.append(fitbitSummary.getTotal());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getTracker());
-            newdata.append(',');
-
-
-            newdata.append(fitbitSummary.getLoggedActivities());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getModeratelyActive());
-            newdata.append(',');
-
-            newdata.append(fitbitSummary.getVeryActive());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getVeryActiveMinutes());
-            newdata.append(',');
-
-            newdata.append(fitbitSummary.getLightlyActive());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getLightlyActiveMinutes());
-            newdata.append(',');
-
-            newdata.append(fitbitSummary.getSedentaryActive());
-            newdata.append(',');
-            newdata.append(fitbitSummary.getSedentaryMinutes().toString());
-
-            newdata.append("\n");
-
-            writer.write(newdata.toString().getBytes());
-            writer.close();
-            Toast.makeText(this,"Done",Toast.LENGTH_LONG).show();
-
-            System.out.println("complete");
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            Toast.makeText(this,"Not Done",Toast.LENGTH_LONG).show();
-        }
-
     }
-    */
-
 
 }
 
