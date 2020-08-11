@@ -58,6 +58,19 @@ public class ProfilePage extends AppCompatActivity {
         //your profile picture, this has been implemented already. Simply click on the photo in profile page.
         weightlog= findViewById(R.id.button_weightlog);
         profileImage = findViewById(R.id.profile_image);
+        /*weightlog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = null;
+                try {
+                    intent = new Intent(ProfilePage.this,
+                            Class.forName("com.fitbitsample.activity.MainActivity"));
+                    startActivity(intent);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });*/
         profileImage.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
             @Override
@@ -152,7 +165,6 @@ public class ProfilePage extends AppCompatActivity {
             }
         }
     }
-
 
 }
 

@@ -10,7 +10,7 @@ SharedPreferenceManager is used to save the user data in out local storage so th
 until and unless user don't hit the signout button, user don't have to sign in again even after the
 app is closed. Also, we have used shared preferences to save user information that was
 used during registration so that we can create a user profile.
-
+learn more:https://developer.android.com/training/data-storage/shared-preferences
  */
 public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "my_shared_preff";
