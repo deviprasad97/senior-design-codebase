@@ -1,23 +1,14 @@
-package com.example.myapplication;
+package com.example.myapplication.LoginStuff;
 
-import com.example.myapplication.LoginResponse;
-
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
 public interface Api {
-
+// TO learn more about FormUrlEncoded
+// https://square.github.io/retrofit/2.x/retrofit/retrofit2/http/FormUrlEncoded.html
     @FormUrlEncoded
-    @POST("auth/login")
+    @POST("auth/login") //using the login endpoint http://ec2-54-214-218-104.us-west-2.compute.amazonaws.com/auth/login
     Call<LoginResponse> userLogin(
             @Field("username") String username,
             @Field("password") String password

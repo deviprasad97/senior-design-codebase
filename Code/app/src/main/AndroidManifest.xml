@@ -21,12 +21,11 @@
         <activity android:name=".health_status" />
         <activity android:name=".select_program" />
         <activity android:name=".homescreen" />
-        <activity android:name=".Login" />
+        <activity android:name=".LoginStuff.Login" />
         <activity
             android:name=".SettingsPage"
             android:label="@string/title_activity_settings_page" />
         <activity android:name=".ProfilePage" />
-        <activity android:name=".OnBoarding" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Welcomescreen" />
-        <activity android:name=".Mainscreen" />
+
         <service android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService" android:enabled="true" />
         <meta-data
             android:name="preloaded_fonts"

@@ -1,12 +1,12 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Welcomescreen extends AppCompatActivity {
 
@@ -31,13 +31,15 @@ public class Welcomescreen extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Welcomescreen.this, Login.class));
+                startActivity(new Intent(Welcomescreen.this, com.example.myapplication.LoginStuff.Login.class));
             }
         });
 
         // On create end
 
     }
+
+    //If the User is already logged in, take use straight to homescreen
     @Override
     protected void onStart() {
         super.onStart();

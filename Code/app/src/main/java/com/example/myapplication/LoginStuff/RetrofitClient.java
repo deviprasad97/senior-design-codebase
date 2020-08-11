@@ -1,19 +1,17 @@
-package com.example.myapplication;
-import android.util.Base64;
+package com.example.myapplication.LoginStuff;
 
-import java.io.IOException;
-
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
+/*
+Define base url of our API.
+endpoint=http://ec2-54-214-218-104.us-west-2.compute.amazonaws.com/auth/login
+Retrofit Singleton Client is used to handle many parallel api request.
+ */
 public class RetrofitClient {
     private static final String BASE_URL = "http://ec2-54-214-218-104.us-west-2.compute.amazonaws.com/";
     private static RetrofitClient mInstance;
     private Retrofit retrofit;
+    //create private constructor and initialize the Retrofit object
     private RetrofitClient() {
 
         retrofit = new Retrofit.Builder()

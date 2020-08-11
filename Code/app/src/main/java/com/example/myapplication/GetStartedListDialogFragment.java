@@ -2,16 +2,15 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.Nullable;
+
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+//This is for the Splash screen when the app starts related to login with google stuff
 /**
  * <p>A fragment that shows a list of items as a modal bottom sheet.</p>
  * <p>You can show this modal bottom sheet from your activity like this:</p>
@@ -37,7 +36,7 @@ public class GetStartedListDialogFragment extends BottomSheetDialogFragment {
         mobileUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), Mainscreen.class);
+                Intent intent = new Intent(getContext(), Welcomescreen.class);
                 startActivity(intent);
             }
         });

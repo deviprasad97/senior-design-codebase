@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,10 +7,12 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+//This class is used for the app startup animation from top to buttom.
 public class SplashScreen extends AppCompatActivity {
 
+    //This is the time for the app startup animation
     private  static  int SPLASH_SCREEN =3500;
 
     ImageView imageView;
@@ -26,11 +26,8 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
         imageView = findViewById(R.id.imageView);
-
-
-
         top = AnimationUtils.loadAnimation(this, R.anim.top);
-        imageView.setAnimation(top);
+        imageView.setAnimation(top);//starting point
 
         new Handler().postDelayed(new Runnable()
         {

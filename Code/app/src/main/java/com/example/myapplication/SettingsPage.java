@@ -1,14 +1,10 @@
 package com.example.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceScreen;
 
 public class SettingsPage extends AppCompatActivity {
 
@@ -30,6 +26,8 @@ public class SettingsPage extends AppCompatActivity {
 
     }
 
+    //This is an important note. This page is Fragment so the xml for this activity is different than usual.
+    //So, if you want to use the buttons of the setting page then go to app->res->xml->root_preferences.xml
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {

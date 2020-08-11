@@ -5,7 +5,11 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
+/*
+This activity connects our app to the fitbit integrating module class
+Trigerred when click on "Sync with Fitbit" button in mobile app.
+To check its xml, go to app->res->xml->root_preferences.xml
+ */
 public class FitBitActivity extends AppCompatActivity {
 
 

@@ -3,11 +3,20 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.myapplication.LoginStuff.LoginResponse;
+import com.example.myapplication.LoginStuff.User;
+/*
+SharedPreferenceManager is used to save the user data in out local storage so that
+until and unless user don't hit the signout button, user don't have to sign in again even after the
+app is closed. Also, we have used shared preferences to save user information that was
+used during registration so that we can create a user profile.
+
+ */
 public class SharedPrefManager {
     private static final String SHARED_PREF_NAME = "my_shared_preff";
 
     private static SharedPrefManager mInstance;
-    private Context mCtx;
+    private Context mCtx; //to handle Shared Preferences we need context object
 
     SharedPrefManager(Context mCtx) {
         this.mCtx = mCtx;
@@ -20,11 +29,19 @@ public class SharedPrefManager {
         }
         return mInstance;
     }
-    public void saveUser(User user) {
 
+    /*
+    Now create  saveUser()  method that will save user inside the shared preferences.
+     */
+    public void saveUser(User user) {//User is the class created to get the user attributes
+        /*
+        Mode Private allows only this application to use the shared preferences.
+         */
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
+        /*
+        Put all the informattion that we got from User object
+         */
         editor.putString("address", user.getAddress());
         editor.putString("bio", user.getBio());
         editor.putString("city", user.getCity());
@@ -45,14 +62,24 @@ public class SharedPrefManager {
 
     }
 
+    /*
+    If user information is already saved in the SharedPreferences then we can
+    assume the user is already logged in
+     */
     public boolean isLoggedIn() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getInt("user_id", -1) != -1;
     }
 
+    /*
+    Get the user
+     */
     public User getUser() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(
+                /*
+                Read the values from SharedPreferences object
+                 */
                 sharedPreferences.getString("address", null),
                 sharedPreferences.getString("bio", null),
                 sharedPreferences.getString("city", null),
@@ -72,6 +99,12 @@ public class SharedPrefManager {
 
         );
     }
+
+    /*
+    Method to save the response from the server after successfull login
+    Check documentation with the heading POSTMAN RESPONSE to view the response from
+    the server.
+     */
     public void saveLoginResponse (LoginResponse loginResponse) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -81,6 +114,10 @@ public class SharedPrefManager {
         editor.putString("status", loginResponse.getStatus());
         editor.apply();
     }
+
+    /*
+    Method to get the Login Response from the server
+     */
     public LoginResponse getLoginResponse() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new LoginResponse(
@@ -90,7 +127,10 @@ public class SharedPrefManager {
         );
 
     }
-
+    /*
+    Method to clear everything saved in the editor. We will use this method
+    for signout. Used in SignOut.java class
+     */
     public void clear() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

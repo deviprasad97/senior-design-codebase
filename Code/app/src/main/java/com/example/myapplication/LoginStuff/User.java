@@ -1,7 +1,12 @@
-package com.example.myapplication;
+package com.example.myapplication.LoginStuff;
 
+/*
+Create a User class to store the User information that is received upon successfull
+login. These are all the User attributes used during costumer registration.
+Check documentation with the heading POSTMAN RESPONSE to view the response.
+ */
 public class User {
-
+//Creating constructor, getter and setter
     private String address, bio, city, email, fname, gender, lname, password, phone, state, uname,zipcode;
     private boolean is_admin, is_email_verified, profile_pic;
     private int user_id;

@@ -1,11 +1,13 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myapplication.LoginStuff.Login;
 
 public class homescreen extends AppCompatActivity {
 
@@ -20,33 +22,27 @@ public class homescreen extends AppCompatActivity {
         you= findViewById(R.id.you);
         program= findViewById(R.id.program);
         //settings=(ImageView) findViewById(R.id.settings);
+        //Takes to health_status page when big round red button is pressed from homescreen
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(homescreen.this, health_status.class));
             }
         });
+        //Takes to setting page when you button is pressed from homescreen
         you.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(homescreen.this, SettingsPage.class));
             }
         });
+        //Takes to program page when Program button is pressed from homescreen
         program.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(homescreen.this, select_program.class));
             }
         });
-        /*
-        settings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(homescreen.this, SettingsPage.class));
-            }
-        });
-        */
-
     }
     @Override
     protected void onStart() {
