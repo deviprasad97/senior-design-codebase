@@ -13,9 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.LoginStuff.LoginResponse;
 import com.example.myapplication.LoginStuff.User;
 import com.example.myapplication.amazonS3.amazonS3main;
-import com.fitbitsample.fitbitdata.FitbitPref;
-import com.fitbitsample.fitbitdata.FitbitSummary;
-import com.fitbitsample.fitbitdata.FitbitUser;
+import com.fitbitsample.FitbitSharedPref.FitbitPref;
+import com.fitbitsample.FitbitSharedPref.FitbitSummary;
+import com.fitbitsample.FitbitSharedPref.FitbitUser;
+
 /*
 This activity is for displaying health data that is retrieved from fitbit integrating module app.
 In fitapp module, under java->com.fitbitsample->fitbitdata->FitbitPref, SharedPreference is created that
@@ -36,6 +37,7 @@ public class health_status extends AppCompatActivity {
         height = findViewById(R.id.get_height);
         weight = findViewById(R.id.get_weight);
         Intent intent = null;
+        //ActivityInfo activityInfo = PaperDB.getInstance().get().read(PaperConstants.ACTIVITY_INFO,null);
 
         //Getting data from the SharedPrefManger and FitbitPref
         User user = SharedPrefManager.getInstance(this).getUser();

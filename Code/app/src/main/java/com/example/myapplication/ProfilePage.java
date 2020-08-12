@@ -16,8 +16,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.LoginStuff.User;
-import com.fitbitsample.fitbitdata.FitbitPref;
-import com.fitbitsample.fitbitdata.FitbitUser;
+import com.fitbitsample.FitbitSharedPref.FitbitPref;
+import com.fitbitsample.FitbitSharedPref.FitbitUser;
 
 import java.io.IOException;
 import java.util.ArrayList;

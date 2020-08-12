@@ -21,9 +21,9 @@ public class FitBitActivity extends AppCompatActivity {
         Intent intent = null;
         try {
             intent = new Intent(this,
-                    Class.forName("com.fitbitsample.activity.MainActivity"));
+                    Class.forName("com.fitbitsample.FitbitActivity.MainActivity"));
             startActivity(intent);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             finish();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

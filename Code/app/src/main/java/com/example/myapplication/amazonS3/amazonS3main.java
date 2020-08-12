@@ -15,9 +15,9 @@ import com.amazonaws.services.s3.AmazonS3Client;
 import com.example.myapplication.LoginStuff.LoginResponse;
 import com.example.myapplication.SharedPrefManager;
 import com.example.myapplication.LoginStuff.User;
-import com.fitbitsample.fitbitdata.FitbitPref;
-import com.fitbitsample.fitbitdata.FitbitSummary;
-import com.fitbitsample.fitbitdata.HeartRateInfo;
+import com.fitbitsample.FitbitSharedPref.FitbitPref;
+import com.fitbitsample.FitbitSharedPref.FitbitSummary;
+import com.fitbitsample.FitbitSharedPref.HeartRateInfo;
 
 import java.io.File;
 import java.io.FileWriter;
