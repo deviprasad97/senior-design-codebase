@@ -2,13 +2,13 @@ package com.fitbitsample.ViewFragments;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
 import androidx.fragment.app.Fragment;
 import com.fitbitsample.FragmentTraceManager.Trace;
 import java.util.Set;
 
-
+/*
+    This class manages the viewing fragments
+ */
 public class MainFragment extends Fragment {
     public Context context;
     public Resources resources;

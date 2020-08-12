@@ -1,7 +1,9 @@
 package com.fitbitsample.FitbitApiHandling;
 
 import java.util.Map;
-
+/*
+    This class serves as Listener for the Network Handler
+ */
 
 public interface NetworkListener<T> {
 

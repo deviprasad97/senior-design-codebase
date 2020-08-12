@@ -2,7 +2,9 @@ package com.fitbitsample.FitbitDataType;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+/*
+    Creating a viewing adapter for Heart Datas with Date Time and Value obj
+ */
 public class ActivitiesHeart {
 
     @SerializedName("dateTime")

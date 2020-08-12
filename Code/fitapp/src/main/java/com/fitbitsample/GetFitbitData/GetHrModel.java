@@ -14,6 +14,12 @@ import com.fitbitsample.FitbitSharedPref.AppPreference;
 import com.fitbitsample.FitbitDataType.HeartRate;
 
 import java.util.Map;
+/*
+    This class makes the fitbit API call to get the heart data of the entire day.
+    The application saves the information in both PaperDB and Sharedpreference,
+    Shared preference can let you access the data any where in the application while
+    Paper DB can be utilized within the module.
+ */
 
 public class GetHrModel extends BaseAndroidViewModel<Integer, HeartRate, String[], GetHrModel> {
     private Integer averageheartrate;
@@ -30,6 +36,7 @@ public class GetHrModel extends BaseAndroidViewModel<Integer, HeartRate, String[
             public void success(HeartRate heartRate) {
                 if (heartRate != null) {
                     Log.i("Hr:", heartRate.toString());
+                    //The shared preference is used to push the data in S3 bucket so, removing all the comma's, tab, and new line while saving the heart data in shared preference
                     FitbitPref.getInstance(context).saveHeartData(new HeartRateInfo(heartRate.toString().replaceAll("[\\n\\t ]", "").replace(",","|")));
                     PaperDB.getInstance().write(PaperConstants.HEART_RATE, heartRate);
                     data.postValue(0);

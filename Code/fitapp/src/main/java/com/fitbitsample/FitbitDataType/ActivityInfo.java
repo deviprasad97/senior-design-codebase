@@ -4,6 +4,10 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/*
+    Creating a viewing adapter class for parsing gson file of activities received from Fitbit API call
+ */
+
 public class ActivityInfo {
 
     @SerializedName("activities")

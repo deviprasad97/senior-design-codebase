@@ -17,6 +17,10 @@ import okio.Buffer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+/*
+    This class does the network handling
+    required for fitbit integration and API calling
+ */
 
 class NetworkHandler<T> {
     private Context context;

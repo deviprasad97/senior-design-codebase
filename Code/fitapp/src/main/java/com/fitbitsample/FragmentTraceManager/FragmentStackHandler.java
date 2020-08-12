@@ -2,7 +2,9 @@ package com.fitbitsample.FragmentTraceManager;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
+/*
+    This class handles the fragments created to view the received and parsed datas
+ */
 
 public class FragmentStackHandler {
     private FragmentManager fragmentManager;

@@ -2,6 +2,9 @@ package com.fitbitsample.FitbitDataType;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+/*
+    Creating a viewing adapter class for parsing gson response for OAUTH 2.0 received from Fitbit API call
+ */
 
 public class OAuthResponse {
 

@@ -5,6 +5,9 @@ import com.fitbitsample.BuildConfig;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+/*
+    This class handles the printing datas on string builded from API calss in logcat
+ */
 
 public class Trace {
 

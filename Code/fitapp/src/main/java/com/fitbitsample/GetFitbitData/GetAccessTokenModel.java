@@ -17,7 +17,12 @@ import java.util.Map;
 import static com.fitbitsample.FitbitActivity.AppConstants.REDIRECT_URI;
 import static com.fitbitsample.FitbitActivity.PrefConstants.CODE;
 import static com.fitbitsample.FitbitActivity.PrefConstants.GRANT_TYPE;
-
+/*
+    This class retrieves access token from fitbit which expires in 8 hours
+    Please refer to the document on how to get the token again because as
+    of now the application is unable to utilize the refresh token received from fitbit
+    to handle the session properly
+ */
 public class GetAccessTokenModel extends BaseAndroidViewModel<Integer, OAuthResponse, Void, GetAccessTokenModel> {
 
     public GetAccessTokenModel(int errorCode) {

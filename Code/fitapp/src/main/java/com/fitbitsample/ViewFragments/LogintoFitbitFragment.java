@@ -26,7 +26,9 @@ import com.fitbitsample.FitbitSharedPref.AppPreference;
 import com.fitbitsample.FragmentTraceManager.Trace;
 import com.fitbitsample.GetFitbitData.GetAccessTokenModel;
 
-
+/*
+    Login Page for fitbit Authorization in google custom tab
+ */
 public class LogintoFitbitFragment extends MainFragment {
 
 

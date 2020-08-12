@@ -4,6 +4,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+/*
+    Creating a viewing adapter class for parsing gson file heart data received from Fitbit API call
+ */
 
 public class Value {
     @SerializedName("customHeartRateZones")
